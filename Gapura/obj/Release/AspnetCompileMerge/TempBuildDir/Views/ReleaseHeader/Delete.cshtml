@@ -1,0 +1,82 @@
+﻿@model Gapura.Models.ReleaseHeader
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ReleaseHeader</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReleaseID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReleaseID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequestID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReleaseNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReleaseNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReleaseDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReleaseDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DepartemenID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DepartemenID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalRequest)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalRequest)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalRelease)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalRelease)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReleaseNote)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReleaseNote)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserID)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

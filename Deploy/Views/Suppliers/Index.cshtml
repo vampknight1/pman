@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Gapura.BLL.Models.Supplier>
+
+@{
+    ViewBag.Title = "Supplier List ";
+}
+<script src="~/Scripts/Rpt/Print.js"></script>
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header">
+            <h2><i class="icon-table"></i>
+                <span class="break"></span>Master Data Supplier</h2>
+            <div class="box-icon">
+                @using (Html.BeginForm("PrintListOfSuppliers", "Suppliers"))
+                { 
+                    <a href="@Url.Action("Create", "Suppliers")">
+                        <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                        Add New Supplier
+                    </a>
+                    <a href="#">
+                        <input id="btnPrintListOfSuppliers" onclick="SupplierListPrint()"
+                            type="image" src="/Content/img/pdf_button.png" height="30" width="35" />
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="box-content">
+            <div style="width: inherit; margin-left: 24px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" width="100%">
+                    <thead>
+                        <tr>
+                            <th>-</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SupplierCode)
+                            </th>
+                            <th>Category Name
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CompanyName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.City)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Region)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ContactName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CellPhone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Npwp)
+                            </th>
+                            <th>Terms Day</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/Suppliers/IndexSuppliers.js"></script>
+}
+
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+
+    td {
+        border: dotted 1px;
+    }
+</style>
+
+@Styles.Render("~/Content/dataTables")

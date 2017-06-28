@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Gapura.Models.Category>
+
+@{
+    ViewBag.Title = "Index Category";
+}
+
+<h2>Index Kategori</h2>
+
+<p>
+    @Html.ActionLink("Create New Category", "Create")
+</p>
+
+<style>
+    tr.even {
+        background-color: #F5F5F5 !important;
+    }
+
+    th {
+        border: dotted 1px;
+    }
+
+    td {
+        border: dotted 1px;
+    }
+</style>
+
+<div style="width: 110%; margin: 0 auto;">
+    @*<table id="jqGrid"></table>
+    <div id="jqControls"></div>*@
+    <table id="jqGrid"></table>
+    <div id="pager"></div>
+</div>
+
+@section scripts{
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui-1.10.4.js"></script>
+    <script src="~/Scripts/i18n/grid.locale-en.js"></script>
+    <script src="~/Scripts/jquery.jqGrid.min.js"></script>
+    <script src="~/Scripts/jqGrid/category.js"></script>
+}

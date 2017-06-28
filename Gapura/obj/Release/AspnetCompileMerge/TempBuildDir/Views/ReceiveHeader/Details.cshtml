@@ -1,0 +1,64 @@
+﻿@model Gapura.Models.ReceiveHeader
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ReceiveHeader</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReceiveID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReceiveID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReceiveNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReceiveNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReceiveDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReceiveDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReceiptReff)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReceiptReff)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SupplierCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SupplierCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalReceive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalReceive)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserID)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

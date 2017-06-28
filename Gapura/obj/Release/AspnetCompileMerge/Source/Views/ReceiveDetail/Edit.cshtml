@@ -1,0 +1,70 @@
+﻿@model Gapura.Models.ReceiveDetail
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ReceiveDetail</legend>
+
+        @Html.HiddenFor(model => model.ReceiveDetailID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReceiveID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReceiveID)
+            @Html.ValidationMessageFor(model => model.ReceiveID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductID)
+            @Html.ValidationMessageFor(model => model.ProductID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StockBegin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StockBegin)
+            @Html.ValidationMessageFor(model => model.StockBegin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QtyReceive)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QtyReceive)
+            @Html.ValidationMessageFor(model => model.QtyReceive)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StockFinal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StockFinal)
+            @Html.ValidationMessageFor(model => model.StockFinal)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

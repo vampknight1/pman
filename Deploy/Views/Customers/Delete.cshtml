@@ -1,0 +1,37 @@
+﻿@model Gapura.BLL.ViewModel.CustomerVM
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("Delete", "Customers", FormMethod.Post, new { @id = "popupForm" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.CustomerID)
+@*<div class="form-group">
+        <label>@Html.DisplayNameFor(m => m.CompanyName) : @Model.CompanyName</label>
+    </div>
+ 
+    <div class="form-group">
+        <label>@Html.DisplayNameFor(m => m.ContactName) : @Model.ContactName</label>
+    </div>
+    
+    <div class="form-group">
+        <label>@Html.DisplayNameFor(m => m.ContactTitle) : @Model.ContactTitle</label>
+    </div>*@
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+    </dl>
+ 
+    <div class="form-actions">
+        <input type="button" class="btn btn-default" onclick="$dialog.dialog('destroy').remove();" value="Cancel" />
+        <input type="submit" class="btn btn-danger" value="Delete" />
+    </div>
+}

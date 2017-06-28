@@ -1,0 +1,159 @@
+﻿@model Gapura.BLL.Models.RequestHeader
+@*@model Gapura.BLL.Models.RequestHD*@
+
+@{
+    ViewBag.Title = "Update Request Item";
+}
+<script src="~/Scripts/Rpt/Print.js"></script>
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header">
+            <h2><i class="icon-pencil"></i><span class="break"></span>Edit Request Item</h2>
+            <div class="box-icon">
+                <a href="#">
+                    <input id="btnPrintRF" onclick="RFFormPrint()"
+                        type="image" src="/Content/img/pdf_button.png" height="30" width="35" />
+                </a>
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            @using (Html.BeginForm("Edit", "RequestHeader", FormMethod.Post, new
+        {
+            @class = "form-horizontal"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend></legend>
+
+                    <table class="table table-condensed">
+                        <tr>
+                            <td>Request No</td>
+                            <td>
+                                @Html.HiddenFor(m => m.RequestID)
+                                @Html.TextBox("RequestNo", (string)ViewBag.RequestNo, new { @id = "RequestNo", @readonly = "readonly", @class = "span8 typeahead" })
+                            </td>
+                            <td>Request Date</td>
+                            <td>
+                                @Html.TextBox("RequestDate", @ViewData["RequestDate"], new { @id = "RequestDate", @readonly = "readonly", @class = "span8 typeahead" })
+                                @Html.ValidationMessageFor(m => m.RequestDate, "", new { style = "color:red;" })
+                            </td>
+                            <td>Required Date</td>
+                            <td>
+                                @Html.TextBox("RequiredDate", @ViewData["RequiredDate"], new { @id = "RequiredDate", @class = "span6 typeahead" })
+                                @Html.ValidationMessageFor(m => m.RequiredDate, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Reff. No</td>
+                            <td>
+                                @Html.TextBox("ReffNo", @ViewData["ReffNo"], new { @id = "ReffNo", @class = "span8 typeahead" })
+                                @Html.ValidationMessageFor(m => m.ReffNo, "", new { style = "color:red;" })
+                            </td>
+                            <td>Request Type</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.RequestTypeID, null, new { @class = "span6 typeahead" })
+                                @Html.ValidationMessageFor(m => m.RequestTypeID, "", new { style = "color:red;" })
+                            </td>
+                            <td>Assets Type</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.AssetsTypeID, null, new { @class = "span7 typeahead" })
+                                @Html.ValidationMessageFor(m => m.AssetsTypeID, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Requester</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.EmployeeID, null, new { @class = "span10 typeahead" })
+                                @*@Html.Hidden("EmployeeID")
+                                @Html.TextBox("sEmployeeID", (string)@ViewData["EmployeeID"], new { @id="sEmployeeID"  ,@class = "span8 typeahead" })*@
+                                @Html.ValidationMessageFor(m => m.EmployeeID, "", new { style = "color:red;" })
+                            </td>
+                            <td>Manager</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.MgrID, null, new { @class = "span10 typeahead" })
+                                @*@Html.Hidden("MgrID")
+                                @Html.TextBox("sMgrID", (string)@ViewData["MgrID"], new { @id="sMgrID"  ,@class = "span8 typeahead" })*@
+                                @Html.ValidationMessageFor(m => m.MgrID, "", new { style = "color:red;" })
+                            </td>
+                            <td>Departemen</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.DepartemenID, null, new { @class = "span10 typeahead" })
+                                @Html.ValidationMessageFor(m => m.DepartemenID, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Currency</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.CurrencyID, null, new { @class = "span6 typeahead" })
+                                @Html.ValidationMessageFor(m => m.CurrencyID, "", new { style = "color:red;" })
+                            </td>
+                            <td>Remarks</td>
+                            <td colspan="7">
+                                @Html.TextArea("Remarks", (string)ViewBag.Remarks, new { @id = "Remarks", @rows = "2", @class = "span4 typeahead" })
+                                @Html.ValidationMessageFor(m => m.Remarks, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <h4><b><u>List of Requested Item</u></b></h4>
+                    </legend>
+                    @Html.Partial("_ListRequestDetail", @ViewData["RequestDetails"])
+
+                    @*@{Html.RenderPartial("_ListRequestDetail", Model.RequestDetails);}*@      @* Alternative *@
+
+                    @*@Ajax.ActionLink("List of Requested Item", "EditList", new AjaxOptions()      //////// Try to Implement Ajax
+                        {
+                            HttpMethod = "Get",
+                            UpdateTargetId = "divRD",
+                            InsertionMode = InsertionMode.Replace
+                        })
+                    <div id ="divRD" ></div>*@
+
+                    <table class="table table-responsive">
+                        <tr>
+                            <td>Total Request</td>
+                            <td>
+                                @Html.HiddenFor(m => m.TotalRequest)
+                                @Html.EditorFor(m => m.TotalRequest, new { htmlAttributes = new { @id = "TotalRequest", @class = "span4 typeahead", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(m => m.TotalRequest, "", new { style = "color:red;" })
+                            </td>
+                            <td>Total Price</td>
+                            <td>
+                                @Html.HiddenFor(m => m.TotalPrice)
+                                @Html.EditorFor(m => m.TotalPrice, new { htmlAttributes = new { @id = "TotalPrice", @class = "span6 typeahead", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(m => m.TotalPrice, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                
+                <div class="form-actions">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                    <input type="reset" value="Reset" class="btn" />
+                    <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                    <a href="@Url.Action("Delete", new { id = @Html.DisplayFor(m => m.RequestID) })" class="btn btn-danger">Delete</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="~/Scripts/Request/EditRequest.js"></script>

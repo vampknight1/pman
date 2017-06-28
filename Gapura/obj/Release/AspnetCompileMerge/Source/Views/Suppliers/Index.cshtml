@@ -1,0 +1,159 @@
+﻿@model IEnumerable<Gapura.Models.Supplier>
+
+@{
+    ViewBag.Title = "Supplier List ";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-table"></i><span
+                class="break"></span>Master Data Supplier</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Create", "Suppliers")">
+                    <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                    Add New Supplier
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            <div style="width: inherit; margin-left: 24px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SupplierCode)
+                            </th>
+                            <th>Category Name
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CompanyName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.City)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Region)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ContactName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CellPhone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Npwp)
+                            </th>
+                            <th>Terms Day
+                            </th>
+                            <th>-
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            @* Load datatable js *@
+            @section Scripts{
+
+                @Scripts.Render("~/bundles/dataTables")
+
+                <script>
+                    $(document).ready(function () {
+                        //var item;
+                        $('a.editor_create').on('click', function (e) {
+                            e.preventDefault();
+
+                            editor.create({
+                                title: 'Create new record',
+                                buttons: 'Add'
+                            });
+                        });
+                        // Edit record
+                        $('#myTable').on('click', 'a.editor_edit', function (e) {
+                            e.preventDefault();
+
+                            editor.edit($(this).closest('tr'), {
+                                title: 'Edit record',
+                                buttons: 'Update'
+                            });
+                        });
+                        // Delete a record
+                        $('#myTable').on('click', 'a.editor_remove', function (e) {
+                            e.preventDefault();
+
+                            editor.remove($(this).closest('tr'), {
+                                title: 'Delete record',
+                                message: 'Are you sure you wish to remove this record?',
+                                buttons: 'Delete'
+                            });
+                        });
+
+                        $('#myTable').DataTable({
+                            "ajax": {
+                                "url": "/Suppliers/LoadData",
+                                "type": "GET",
+                                "datatype": "json"
+                            },
+                            "columns": [
+                                { "data": "SupplierCode", "width": "10%" },
+                                { "data": "CategoryName", "width": "10%" },
+                                { "data": "CompanyName", "width": "10%" },
+                                { "data": "Address", "width": "20%" },
+                                { "data": "City", "width": "7%" },
+                                { "data": "Region", "width": "8%" },
+                                { "data": "ContactName", "width": "8%" },
+                                { "data": "Phone", "width": "5%" },
+                                { "data": "CellPhone", "width": "5%" },
+                                { "data": "Npwp", "width": "8%" },
+                                { "data": "TermDays", "width": "5%" },
+                                {
+                                    //"data": null,
+                                    //"className": "center",
+                                    "data": "SupplierID", "width": "4%", "render": function (data) {
+                                        return '<a class="btn btn-info" href="/Suppliers/Edit/' + data + '"><i class="halflings-icon white edit"></i></a>' +
+                                                '<a class="btn btn-danger" href="/Suppliers/Delete/' + data + '"><i class="halflings-icon white trash"></i></a>' +
+                                                '<a class="btn btn-success" href="/Suppliers/Details/' + data + '"><i class="halflings-icon white zoom-in"></i></a>'
+                                    }
+                                }
+                            ],
+                            "pagingType": "full_numbers",
+                            "info": true,
+                            "scrollCollapse": true,
+                            "sScrollX": true,
+                            "sScrollY": "55vh",
+                            "sScrollCollapse": true,
+                            "width": "100%"
+                        });
+                        dataTable.table.on('draw', function () {
+                            $('button[data-type="delete"]').click(function () {
+                                var $button = $(this);
+                            });
+
+                            $('button[data-type="edit"]').click(function () {
+                            });
+                        });
+                    })
+                </script>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+    td {
+        border: dotted 1px;
+    }
+</style>
+
+@Styles.Render("~/Content/dataTables")

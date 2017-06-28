@@ -1,0 +1,734 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YSIDGAModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="YSIDGAModelStoreContainer">
+    <EntitySet Name="Categories" EntityType="YSIDGAModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerCustomerDemo" EntityType="YSIDGAModel.Store.CustomerCustomerDemo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerDemographics" EntityType="YSIDGAModel.Store.CustomerDemographics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="YSIDGAModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departement" EntityType="YSIDGAModel.Store.Departement" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Division" EntityType="YSIDGAModel.Store.Division" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employees" EntityType="YSIDGAModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MasterAssetsTypes" EntityType="YSIDGAModel.Store.MasterAssetsTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MasterCurrency" EntityType="YSIDGAModel.Store.MasterCurrency" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MasterOffice" EntityType="YSIDGAModel.Store.MasterOffice" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MasterPeriod" EntityType="YSIDGAModel.Store.MasterPeriod" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MasterRequestTypes" EntityType="YSIDGAModel.Store.MasterRequestTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MasterTitle" EntityType="YSIDGAModel.Store.MasterTitle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MasterTransTypes" EntityType="YSIDGAModel.Store.MasterTransTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MasterUnit" EntityType="YSIDGAModel.Store.MasterUnit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Menus" EntityType="YSIDGAModel.Store.Menus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderDetails" EntityType="YSIDGAModel.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Orders" EntityType="YSIDGAModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PODetail" EntityType="YSIDGAModel.Store.PODetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="POHeader" EntityType="YSIDGAModel.Store.POHeader" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="YSIDGAModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductsInventory" EntityType="YSIDGAModel.Store.ProductsInventory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RBAC_UserProfile" EntityType="YSIDGAModel.Store.RBAC_UserProfile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReceiveDetail" EntityType="YSIDGAModel.Store.ReceiveDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReceiveHeader" EntityType="YSIDGAModel.Store.ReceiveHeader" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Region" EntityType="YSIDGAModel.Store.Region" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReleaseDetail" EntityType="YSIDGAModel.Store.ReleaseDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReleaseHeader" EntityType="YSIDGAModel.Store.ReleaseHeader" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RequestDetail" EntityType="YSIDGAModel.Store.RequestDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RequestHeader" EntityType="YSIDGAModel.Store.RequestHeader" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Shippers" EntityType="YSIDGAModel.Store.Shippers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StockCard" EntityType="YSIDGAModel.Store.StockCard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Suppliers" EntityType="YSIDGAModel.Store.Suppliers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="YSIDGAModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TermOfPays" EntityType="YSIDGAModel.Store.TermOfPays" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Territories" EntityType="YSIDGAModel.Store.Territories" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CustomerCustomerDemo" Association="YSIDGAModel.Store.FK_CustomerCustomerDemo">
+      <End Role="CustomerDemographics" EntitySet="CustomerDemographics" />
+      <End Role="CustomerCustomerDemo" EntitySet="CustomerCustomerDemo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerCustomerDemo_Customers" Association="YSIDGAModel.Store.FK_CustomerCustomerDemo_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="CustomerCustomerDemo" EntitySet="CustomerCustomerDemo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departemen_Division" Association="YSIDGAModel.Store.FK_Departemen_Division">
+      <End Role="Division" EntitySet="Division" />
+      <End Role="Departement" EntitySet="Departement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Employees" Association="YSIDGAModel.Store.FK_Employees_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employees1" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_MasterOffice" Association="YSIDGAModel.Store.FK_Employees_MasterOffice">
+      <End Role="MasterOffice" EntitySet="MasterOffice" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menus_Menus" Association="YSIDGAModel.Store.FK_Menus_Menus">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="Menus1" EntitySet="Menus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Details_Orders" Association="YSIDGAModel.Store.FK_Order_Details_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Details_Products" Association="YSIDGAModel.Store.FK_Order_Details_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Customers" Association="YSIDGAModel.Store.FK_Orders_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Employees" Association="YSIDGAModel.Store.FK_Orders_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Shippers" Association="YSIDGAModel.Store.FK_Orders_Shippers">
+      <End Role="Shippers" EntitySet="Shippers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PODetail_POHeader" Association="YSIDGAModel.Store.FK_PODetail_POHeader">
+      <End Role="POHeader" EntitySet="POHeader" />
+      <End Role="PODetail" EntitySet="PODetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestDetails_RequestHeader" Association="YSIDGAModel.Store.FK_RequestDetails_RequestHeader">
+      <End Role="RequestHeader" EntitySet="RequestHeader" />
+      <End Role="RequestDetail" EntitySet="RequestDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Territories_Region" Association="YSIDGAModel.Store.FK_Territories_Region">
+      <End Role="Region" EntitySet="Region" />
+      <End Role="Territories" EntitySet="Territories" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Picture" Type="image" />
+  </EntityType>
+  <EntityType Name="CustomerCustomerDemo">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+      <PropertyRef Name="CustomerTypeID" />
+    </Key>
+    <Property Name="CustomerID" Type="nchar" Nullable="false" MaxLength="5" />
+    <Property Name="CustomerTypeID" Type="nchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CustomerDemographics">
+    <Key>
+      <PropertyRef Name="CustomerTypeID" />
+    </Key>
+    <Property Name="CustomerTypeID" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="CustomerDesc" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="nchar" Nullable="false" MaxLength="5" />
+    <Property Name="CompanyName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ContactName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactTitle" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="60" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="Region" Type="varchar" MaxLength="50" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Fax" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Departement">
+    <Key>
+      <PropertyRef Name="DepartemenID" />
+    </Key>
+    <Property Name="DepartemenID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DepartemenName" Type="varchar" Nullable="false" MaxLength="25" />
+    <Property Name="DivisionID" Type="int" Nullable="false" />
+    <Property Name="Note" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="DivisionID" />
+    </Key>
+    <Property Name="DivisionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DivisionName" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Note" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="TitleID" Type="smallint" />
+    <Property Name="TitleOfCourtesy" Type="varchar" MaxLength="5" />
+    <Property Name="BirthDate" Type="datetime" />
+    <Property Name="HireDate" Type="datetime" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="20" />
+    <Property Name="Region" Type="varchar" MaxLength="20" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="10" />
+    <Property Name="Country" Type="varchar" MaxLength="30" />
+    <Property Name="HomePhone" Type="varchar" MaxLength="20" />
+    <Property Name="Extension" Type="varchar" MaxLength="5" />
+    <Property Name="Photo" Type="image" />
+    <Property Name="Notes" Type="text" />
+    <Property Name="ReportsTo" Type="int" />
+    <Property Name="PhotoPath" Type="varchar" MaxLength="255" />
+    <Property Name="PhotoName" Type="varchar" MaxLength="30" />
+    <Property Name="OfficeID" Type="int" />
+    <Property Name="DepartemenID" Type="int" />
+  </EntityType>
+  <EntityType Name="MasterAssetsTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AssetsType" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="AssetsNote" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MasterCurrency">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CurrencyCode" Type="char" Nullable="false" MaxLength="3" />
+    <Property Name="CurrencyName" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="MasterOffice">
+    <Key>
+      <PropertyRef Name="OfficeID" />
+    </Key>
+    <Property Name="OfficeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OfficeCode" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="OfficeName" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="Address" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="City" Type="varchar" MaxLength="25" />
+    <Property Name="Region" Type="varchar" MaxLength="25" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MasterPeriod">
+    <Key>
+      <PropertyRef Name="PeriodID" />
+    </Key>
+    <Property Name="PeriodID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StartPeriod" Type="date" Nullable="false" />
+    <Property Name="EndPeriod" Type="date" Nullable="false" />
+    <Property Name="PeriodName" Type="char" Nullable="false" MaxLength="6" />
+    <Property Name="ClosePeriod" Type="bit" />
+  </EntityType>
+  <EntityType Name="MasterRequestTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RequestType" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="RequestNote" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MasterTitle">
+    <Key>
+      <PropertyRef Name="TitleID" />
+    </Key>
+    <Property Name="TitleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TitleName" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Note" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MasterTransTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TransCode" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="TransName" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="MasterUnit">
+    <Key>
+      <PropertyRef Name="UnitID" />
+    </Key>
+    <Property Name="UnitID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UnitName" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="UnitDesc" Type="text" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" />
+    <Property Name="ParentId" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Note" Type="text" />
+    <Property Name="QtyRelease" Type="int" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="Discount" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="nchar" MaxLength="5" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="RequiredDate" Type="datetime" />
+    <Property Name="TotalOrder" Type="int" />
+    <Property Name="ReffNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="ShipVia" Type="int" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="ShipName" Type="nvarchar" MaxLength="40" />
+    <Property Name="ShipAddress" Type="nvarchar" MaxLength="60" />
+    <Property Name="ShipCity" Type="nvarchar" MaxLength="15" />
+    <Property Name="ShipRegion" Type="nvarchar" MaxLength="15" />
+    <Property Name="ShipCountry" Type="nvarchar" MaxLength="15" />
+    <Property Name="ShippedDate" Type="datetime" />
+    <Property Name="TotalRelease" Type="int" />
+    <Property Name="Freight" Type="money" />
+  </EntityType>
+  <EntityType Name="PODetail">
+    <Key>
+      <PropertyRef Name="PODetailID" />
+    </Key>
+    <Property Name="PODetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="POID" Type="int" Nullable="false" />
+    <Property Name="RequestID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="UnitID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Remarks" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="POHeader">
+    <Key>
+      <PropertyRef Name="POID" />
+    </Key>
+    <Property Name="POID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RequestID" Type="varchar" Nullable="false" MaxLength="25" />
+    <Property Name="PONo" Type="varchar" Nullable="false" MaxLength="25" />
+    <Property Name="PODate" Type="datetime" />
+    <Property Name="DepartemenID" Type="int" Nullable="false" />
+    <Property Name="RequestDate" Type="datetime" Nullable="false" />
+    <Property Name="RequiredDate" Type="datetime" Nullable="false" />
+    <Property Name="TotalRequest" Type="int" Nullable="false" />
+    <Property Name="ReffNo" Type="varchar" MaxLength="25" />
+    <Property Name="RequestTypeID" Type="smallint" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="MgrID" Type="int" />
+    <Property Name="GAMgrID" Type="int" />
+    <Property Name="GMID" Type="int" />
+    <Property Name="TotalPrice" Type="money" />
+    <Property Name="CurrencyID" Type="smallint" Nullable="false" />
+    <Property Name="AssetsTypeID" Type="smallint" Nullable="false" />
+    <Property Name="Remarks" Type="varchar" MaxLength="250" />
+    <Property Name="UserID" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductCode" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="ProductName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="SupplierID" Type="int" />
+    <Property Name="QuantityPerUnit" Type="varchar" MaxLength="50" />
+    <Property Name="UnitPrice" Type="money" />
+    <Property Name="UnitsInStock" Type="int" />
+    <Property Name="UnitID" Type="int" />
+    <Property Name="UnitsOnOrder" Type="int" />
+    <Property Name="ReorderLevel" Type="int" />
+    <Property Name="Discontinued" Type="bit" Nullable="false" />
+    <Property Name="Specs" Type="varchar" MaxLength="50" />
+    <Property Name="FirstInputDate" Type="datetime2" Precision="0" />
+    <Property Name="PhotoPath" Type="varchar" MaxLength="255" />
+    <Property Name="PhotoName" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ProductsInventory">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="DepartemenID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="DepartemenID" Type="int" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="PhotoPath" Type="varchar" MaxLength="255" />
+    <Property Name="UnitsInStock" Type="int" />
+    <Property Name="UnitsOnOrder" Type="int" />
+    <Property Name="LastUpdate" Type="datetime2" />
+  </EntityType>
+  <EntityType Name="RBAC_UserProfile">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="FullName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ReceiveDetail">
+    <Key>
+      <PropertyRef Name="ReceiveDetailID" />
+    </Key>
+    <Property Name="ReceiveDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ReceiveID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="StockBegin" Type="int" />
+    <Property Name="QtyReceive" Type="int" Nullable="false" />
+    <Property Name="StockFinal" Type="int" />
+  </EntityType>
+  <EntityType Name="ReceiveHeader">
+    <Key>
+      <PropertyRef Name="ReceiveID" />
+    </Key>
+    <Property Name="ReceiveID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ReceiveNo" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="ReceiveDate" Type="datetime" />
+    <Property Name="ReceiptReff" Type="varchar" MaxLength="15" />
+    <Property Name="SupplierCode" Type="varchar" MaxLength="15" />
+    <Property Name="TotalReceive" Type="int" />
+    <Property Name="UserID" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="RegionID" />
+    </Key>
+    <Property Name="RegionID" Type="int" Nullable="false" />
+    <Property Name="RegionDescription" Type="nchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ReleaseDetail">
+    <Key>
+      <PropertyRef Name="ReleaseDetailID" />
+    </Key>
+    <Property Name="ReleaseDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ReleaseID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="StockBegin" Type="int" />
+    <Property Name="QtyRequest" Type="int" />
+    <Property Name="QtyRelease" Type="int" Nullable="false" />
+    <Property Name="StockFinal" Type="int" />
+    <Property Name="Note" Type="text" />
+  </EntityType>
+  <EntityType Name="ReleaseHeader">
+    <Key>
+      <PropertyRef Name="ReleaseID" />
+    </Key>
+    <Property Name="ReleaseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RequestID" Type="int" Nullable="false" />
+    <Property Name="ReleaseNo" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="ReleaseDate" Type="datetime" />
+    <Property Name="DepartemenID" Type="int" />
+    <Property Name="TotalRequest" Type="int" />
+    <Property Name="TotalRelease" Type="int" />
+    <Property Name="ReleaseNote" Type="text" />
+    <Property Name="UserID" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="RequestDetail">
+    <Key>
+      <PropertyRef Name="RequestDetailID" />
+    </Key>
+    <Property Name="RequestDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RequestID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="UnitID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Remarks" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RequestHeader">
+    <Key>
+      <PropertyRef Name="RequestID" />
+    </Key>
+    <Property Name="RequestID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RequestNo" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="DepartemenID" Type="int" Nullable="false" />
+    <Property Name="RequestDate" Type="datetime" Nullable="false" />
+    <Property Name="RequiredDate" Type="datetime" Nullable="false" />
+    <Property Name="TotalRequest" Type="int" Nullable="false" />
+    <Property Name="ReffNo" Type="varchar" MaxLength="25" />
+    <Property Name="RequestTypeID" Type="smallint" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="MgrID" Type="int" />
+    <Property Name="GAMgrID" Type="int" />
+    <Property Name="GMID" Type="int" />
+    <Property Name="TotalPrice" Type="money" />
+    <Property Name="CurrencyID" Type="smallint" Nullable="false" />
+    <Property Name="AssetsTypeID" Type="smallint" Nullable="false" />
+    <Property Name="Remarks" Type="varchar" MaxLength="250" />
+    <Property Name="ReqSeq" Type="varchar" MaxLength="3" StoreGeneratedPattern="Computed" />
+    <Property Name="UserID" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Shippers">
+    <Key>
+      <PropertyRef Name="ShipperID" />
+    </Key>
+    <Property Name="ShipperID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="StockCard">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionNo" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="TransCode" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="TransactionDate" Type="datetime" />
+    <Property Name="DepartemenID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Note" Type="varchar" MaxLength="250" />
+    <Property Name="TransactionIN" Type="bigint" />
+    <Property Name="TransactionOUT" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierCode" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="Region" Type="varchar" MaxLength="50" />
+    <Property Name="ContactName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="CellPhone" Type="varchar" MaxLength="50" />
+    <Property Name="Npwp" Type="varchar" MaxLength="50" />
+    <Property Name="TermID" Type="smallint" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TermOfPays">
+    <Key>
+      <PropertyRef Name="TermID" />
+    </Key>
+    <Property Name="TermID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TermDays" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Territories">
+    <Key>
+      <PropertyRef Name="TerritoryID" />
+    </Key>
+    <Property Name="TerritoryID" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="TerritoryDescription" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="RegionID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CustomerCustomerDemo">
+    <End Role="CustomerDemographics" Type="YSIDGAModel.Store.CustomerDemographics" Multiplicity="1" />
+    <End Role="CustomerCustomerDemo" Type="YSIDGAModel.Store.CustomerCustomerDemo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerDemographics">
+        <PropertyRef Name="CustomerTypeID" />
+      </Principal>
+      <Dependent Role="CustomerCustomerDemo">
+        <PropertyRef Name="CustomerTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerCustomerDemo_Customers">
+    <End Role="Customers" Type="YSIDGAModel.Store.Customers" Multiplicity="1" />
+    <End Role="CustomerCustomerDemo" Type="YSIDGAModel.Store.CustomerCustomerDemo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerCustomerDemo">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departemen_Division">
+    <End Role="Division" Type="YSIDGAModel.Store.Division" Multiplicity="1" />
+    <End Role="Departement" Type="YSIDGAModel.Store.Departement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="DivisionID" />
+      </Principal>
+      <Dependent Role="Departement">
+        <PropertyRef Name="DivisionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Employees">
+    <End Role="Employees" Type="YSIDGAModel.Store.Employees" Multiplicity="0..1" />
+    <End Role="Employees1" Type="YSIDGAModel.Store.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Employees1">
+        <PropertyRef Name="ReportsTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_MasterOffice">
+    <End Role="MasterOffice" Type="YSIDGAModel.Store.MasterOffice" Multiplicity="0..1" />
+    <End Role="Employees" Type="YSIDGAModel.Store.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterOffice">
+        <PropertyRef Name="OfficeID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="OfficeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menus_Menus">
+    <End Role="Menus" Type="YSIDGAModel.Store.Menus" Multiplicity="0..1" />
+    <End Role="Menus1" Type="YSIDGAModel.Store.Menus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Menus1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Details_Orders">
+    <End Role="Orders" Type="YSIDGAModel.Store.Orders" Multiplicity="1" />
+    <End Role="OrderDetails" Type="YSIDGAModel.Store.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Details_Products">
+    <End Role="Products" Type="YSIDGAModel.Store.Products" Multiplicity="1" />
+    <End Role="OrderDetails" Type="YSIDGAModel.Store.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Customers">
+    <End Role="Customers" Type="YSIDGAModel.Store.Customers" Multiplicity="0..1" />
+    <End Role="Orders" Type="YSIDGAModel.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Employees">
+    <End Role="Employees" Type="YSIDGAModel.Store.Employees" Multiplicity="0..1" />
+    <End Role="Orders" Type="YSIDGAModel.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Shippers">
+    <End Role="Shippers" Type="YSIDGAModel.Store.Shippers" Multiplicity="0..1" />
+    <End Role="Orders" Type="YSIDGAModel.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shippers">
+        <PropertyRef Name="ShipperID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="ShipVia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PODetail_POHeader">
+    <End Role="POHeader" Type="YSIDGAModel.Store.POHeader" Multiplicity="1" />
+    <End Role="PODetail" Type="YSIDGAModel.Store.PODetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POHeader">
+        <PropertyRef Name="POID" />
+      </Principal>
+      <Dependent Role="PODetail">
+        <PropertyRef Name="POID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestDetails_RequestHeader">
+    <End Role="RequestHeader" Type="YSIDGAModel.Store.RequestHeader" Multiplicity="1" />
+    <End Role="RequestDetail" Type="YSIDGAModel.Store.RequestDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestHeader">
+        <PropertyRef Name="RequestID" />
+      </Principal>
+      <Dependent Role="RequestDetail">
+        <PropertyRef Name="RequestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Territories_Region">
+    <End Role="Region" Type="YSIDGAModel.Store.Region" Multiplicity="1" />
+    <End Role="Territories" Type="YSIDGAModel.Store.Territories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="RegionID" />
+      </Principal>
+      <Dependent Role="Territories">
+        <PropertyRef Name="RegionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SP_CustOrderHist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerID" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="SP_CustOrdersDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_CustOrdersOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerID" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="SP_EmployeeSalesbyCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Beginning_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Ending_Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_SalesByCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryName" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrdYear" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_SalesbyYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Beginning_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Ending_Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_TenMostExpensiveProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPI_Categories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPI_Customers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPI_Departement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPI_Employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPI_PODetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="POID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPI_POHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPI_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPI_ProductsInventory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPI_RequestDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RequestID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPI_RequestHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPI_Suppliers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

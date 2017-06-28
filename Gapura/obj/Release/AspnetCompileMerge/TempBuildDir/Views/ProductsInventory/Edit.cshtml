@@ -1,0 +1,125 @@
+﻿@model Gapura.Models.ProductsInventory
+@*@using Gapura.Models;*@
+@*@model Tuple<List<ProductsInventory>, List<Product>>*@
+
+@{
+    ViewBag.Title = "Edit Item Inventory";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-edit"></i><span
+                class="break"></span>Edit Items Inventory</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Index", "ProductsInventory")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>@*Back to Dashboard*@
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Edit", "ProductsInventory", FormMethod.Post, new
+        {
+            enctype = "multipart/form-data",
+            @class = "form-horizontal"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <div class="container">
+                    <div class="box span3">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>
+                                    <img src="@Url.Content(ViewBag.PhotoPath)" alt="Item Name" width="250" height="450" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="box span8" style="margin-left: 10px">
+                        <div class="box-header">
+                            <h4><i class="halflings-icon tags"></i><span class="break"></span><b>Item Detail</b></h4>
+                            <div class="box-icon">
+                            </div>
+                        </div>
+
+                        <fieldset>
+                            <legend></legend>
+
+                            @Html.HiddenFor(model => model.ProductID)
+
+                            @*<div class="editor-label">
+                            @Html.Partial("_IndexPV", new Gapura.Models.Product())
+                            </div>*@
+                            @*<div id="RO">*@
+                            <div class="editor-label">
+                                @Html.Label("DepartemenID", "Departemen", new { @class = "control-label" })
+
+                                @*@Html.TextBox("DepartemenID", @ViewData["CompanyName"], new { @readonly="readonly" })*@
+                                @Html.HiddenFor(model => model.DepartemenID)
+                                @Html.DropDownList("DepartemenID", new SelectList(@ViewBag.DepartemenID, "DepartemenID", "Departemen"), new { disabled = "disabled" })
+                                @Html.ValidationMessageFor(model => model.DepartemenID)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("ProductID", "Item", new { @class = "control-label" })
+
+                                @Html.DropDownListFor(model => model.ProductID, new SelectList(@ViewBag.ProductID, "ProductID", "CodeName"), new { @disabled = false, @class = "span9 typehead"})
+                                @Html.ValidationMessageFor(model => model.ProductID)
+                            </div>
+                            
+                            <div class="editor-label">
+                                @Html.Label("CategoryID", "Category", new { @class = "control-label" })
+
+                                @*@Html.DropDownList("CategoryID", String.Empty)*@
+                                @Html.DropDownList("CategoryID", new SelectList(@ViewBag.CategoryID, "CategoryID", "CategoryName"), new { disabled = "disabled" })
+                                @Html.ValidationMessageFor(model => model.CategoryID)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("UnitsInStock", "Current Stock", new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.UnitsInStock)
+                                @Html.ValidationMessageFor(model => model.UnitsInStock)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("UnitsOnOrder", "Units On Order", new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.UnitsOnOrder)
+                                @Html.ValidationMessageFor(model => model.UnitsOnOrder)
+                            </div>
+
+                            <div class="form-actions">
+                                <a class="btn btn-success" href="#" onclick="$('form').submit();">Save</a>
+                                <input type="reset" value="Reset" class="btn" />
+                                <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<style>
+    div.editor-label {
+        margin-bottom: 14px !important;
+        /*padding-left: 6px;*/
+    }
+</style>
+
+@*<script type="text/javascript">
+    $("#ReadOnly").each(function() {
+        $(this).attr("readonly", "1");
+    });
+</script>*@

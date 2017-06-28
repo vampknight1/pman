@@ -1,0 +1,29 @@
+﻿@model Gapura.Models.Division
+
+@{
+    ViewBag.Title = "Details Division";
+}
+
+<h2>Details Division</h2>
+
+<fieldset>
+    <legend>Division</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DivisionName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DivisionName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Note)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Note)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.DivisionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

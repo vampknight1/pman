@@ -1,0 +1,104 @@
+﻿@model Gapura.Models.RequestDetail
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-edit"></i><span
+                class="break"></span>Edit Requested Item</h2>
+            <div class="box-icon">
+                @*<a href="~/Products/Index" class="btn-setting"><i class="halflings-icon wrench"></i></a>*@
+                <a href="javascript:void(0);" onclick="history.go(-1);"
+                    title="Return to Index List">
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Edit", "RequestDetail", FormMethod.Post, new
+        {
+            @class = "form-horizontal"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend></legend>
+
+                    @Html.HiddenFor(model => model.RequestDetailID)
+
+                    @Html.HiddenFor(model => model.RequestID)
+
+                    <div class="editor-label">
+                        @Html.Label("ProductID", "Item Name", new { @class = "control-label" })
+
+                        @Html.DropDownList("ProductID", String.Empty)
+                        @Html.ValidationMessageFor(model => model.ProductID)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("UnitPrice", "UnitPrice", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.UnitPrice)
+                        @Html.ValidationMessageFor(model => model.UnitPrice)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("UnitID", "Unit Name", new { @class = "control-label" })
+
+                        @Html.DropDownList("UnitID", String.Empty)
+                        @Html.ValidationMessageFor(model => model.UnitID)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("Quantity", "Quantity", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.Quantity)
+                        @Html.ValidationMessageFor(model => model.Quantity)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("Amount", "Amount", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.Amount)
+                        @Html.ValidationMessageFor(model => model.Amount)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("Remarks", "Remarks Code", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.Remarks)
+                        @Html.ValidationMessageFor(model => model.Remarks)
+                    </div>
+
+                    <div class="form-actions">
+                        <a class="btn btn-success" href="#" onclick="$('form').submit();">Save</a>
+                        <input type="reset" value="Reset" class="btn" />
+                        @*<a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>*@
+                        <a class="btn btn-info" href="javascript:void(0);" onclick="history.go(-1);">Cancel</a>
+                        <a href="@Url.Action("Delete", new { id = @Html.DisplayFor(model => model.RequestDetailID) })" class="btn btn-danger">Delete</a>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<style>
+    div.editor-label {
+        margin-bottom: 14px !important;
+    }
+</style>

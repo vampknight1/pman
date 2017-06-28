@@ -1,0 +1,43 @@
+﻿@model Gapura.Models.MasterPeriod
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MasterPeriod</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PeriodID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PeriodID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StartPeriod)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartPeriod)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EndPeriod)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndPeriod)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PeriodName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PeriodName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

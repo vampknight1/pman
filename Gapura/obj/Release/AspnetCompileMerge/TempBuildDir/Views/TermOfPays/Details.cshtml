@@ -1,0 +1,29 @@
+﻿@model Gapura.Models.TermOfPay
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>TermOfPay</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TermID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TermID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TermDays)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TermDays)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

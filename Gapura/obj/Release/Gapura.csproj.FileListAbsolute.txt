@@ -1,0 +1,199 @@
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\Gapura.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\Gapura.pdb
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\Antlr3.Runtime.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.AspNet.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.Core.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.OAuth.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.OpenId.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\EntityFramework.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\Microsoft.Web.Infrastructure.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\Newtonsoft.Json.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Net.Http.Formatting.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.Helpers.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.Http.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.Http.WebHost.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.Mvc.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.Optimization.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.Razor.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.WebPages.Deployment.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.WebPages.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.WebPages.Razor.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\WebGrease.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\WebMatrix.Data.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\WebMatrix.WebData.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\EntityFramework.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\Newtonsoft.Json.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Net.Http.Formatting.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.Helpers.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.Http.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.Http.WebHost.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.Mvc.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.Razor.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.WebPages.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.WebPages.Deployment.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\System.Web.WebPages.Razor.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\WebMatrix.Data.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\WebMatrix.WebData.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.AspNet.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.Core.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.OAuth.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.OpenId.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\obj\Release\Gapura.csprojResolveAssemblyReference.cache
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\obj\Release\Gapura.dll
+D:\Job\Project YSID\IntPurGaProj\GapuraNeoMetro\BackUp\Now\Gapura\obj\Release\Gapura.pdb
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\App_Reports\EmployeeList.rpt
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\App_Reports\CategoryList.rpt
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\App_Reports\RF.rpt
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\App_Reports\SupplierList.rpt
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\App_Reports\ItemsList.rpt
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\App_Reports\EmployeeList.cs
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\App_Reports\CategoryList.cs
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\App_Reports\RF.cs
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\App_Reports\SupplierList.cs
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\App_Reports\ItemsList.cs
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Gapura.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Gapura.pdb
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Antlr3.Runtime.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\AutoMapper.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\CrystalDecisions.ReportSource.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\CrystalDecisions.Shared.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.AspNet.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.Core.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.OAuth.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.OpenId.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\EntityFramework.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.CSharp.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Data.Edm.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Data.OData.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Owin.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Owin.Security.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Web.Helpers.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Web.Infrastructure.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\MvcSiteMapProvider.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\MvcSiteMapProvider.WebActivator.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Newtonsoft.Json.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Owin.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.ComponentModel.DataAnnotations.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Configuration.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Data.DataSetExtensions.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Data.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Data.Entity.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Drawing.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.EnterpriseServices.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Net.Http.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Net.Http.Formatting.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Net.Http.WebRequest.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Runtime.Serialization.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Security.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Spatial.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Transactions.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Abstractions.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.ApplicationServices.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.DynamicData.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Entity.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Extensions.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Helpers.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Http.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Http.OData.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Http.Owin.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Http.WebHost.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Mvc.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Optimization.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Razor.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Routing.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Services.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.WebPages.Deployment.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.WebPages.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.WebPages.Razor.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Xml.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Xml.Linq.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\WebActivatorEx.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\WebGrease.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\WebMatrix.Data.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\WebMatrix.WebData.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Antlr3.Runtime.pdb
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\AutoMapper.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\EntityFramework.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Data.Edm.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Data.OData.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Owin.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Owin.Security.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\MvcSiteMapProvider.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\MvcSiteMapProvider.WebActivator.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Newtonsoft.Json.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Net.Http.Formatting.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Spatial.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Helpers.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Http.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Http.OData.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Http.Owin.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Http.WebHost.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Mvc.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Optimization.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.Razor.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.WebPages.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.WebPages.Deployment.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\System.Web.WebPages.Razor.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.AspNet.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.Core.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.OAuth.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.OpenId.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\WebMatrix.Data.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\WebMatrix.WebData.xml
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\de\Microsoft.Data.OData.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\es\Microsoft.Data.OData.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\it\Microsoft.Data.OData.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\de\System.Spatial.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\es\System.Spatial.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\fr\System.Spatial.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\it\System.Spatial.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\ja\System.Spatial.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\ko\System.Spatial.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\ru\System.Spatial.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\zh-Hans\System.Spatial.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\zh-Hant\System.Spatial.resources.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\obj\Release\Gapura.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\obj\Release\Gapura.pdb
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\obj\Release\Gapura.csprojResolveAssemblyReference.cache
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Gapura.BLL.dll
+D:\Job\YSID - Project\GAPURA\GapuraNeoMetro\Gapura\bin\Gapura.BLL.pdb

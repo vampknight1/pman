@@ -1,0 +1,64 @@
+﻿@model Gapura.Models.ProductsInventory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ProductsInventory</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UnitsInStock)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnitsInStock)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UnitsOnOrder)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnitsOnOrder)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReorderLevel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReorderLevel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Discontinued)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Discontinued)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,913 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YSIDGAModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="YSIDGAEntitiesConn" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="YSIDGAModel.Category" />
+    <EntitySet Name="Products" EntityType="YSIDGAModel.Product" />
+    <EntitySet Name="Regions" EntityType="YSIDGAModel.Region" />
+    <EntitySet Name="Shippers" EntityType="YSIDGAModel.Shipper" />
+    <EntitySet Name="Suppliers" EntityType="YSIDGAModel.Supplier" />
+    <EntitySet Name="Territories" EntityType="YSIDGAModel.Territory" />
+    <AssociationSet Name="FK_Products_Categories" Association="YSIDGAModel.FK_Products_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Suppliers" Association="YSIDGAModel.FK_Products_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Territories_Region" Association="YSIDGAModel.FK_Territories_Region">
+      <End Role="Region" EntitySet="Regions" />
+      <End Role="Territories" EntitySet="Territories" />
+    </AssociationSet>
+    <FunctionImport Name="SP_CustOrderHist">
+      <Parameter Name="CustomerID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CustOrdersDetail">
+      <Parameter Name="OrderID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CustOrdersOrders" ReturnType="Collection(YSIDGAModel.SP_CustOrdersOrders_Result)">
+      <Parameter Name="CustomerID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_EmployeeSalesbyCountry">
+      <Parameter Name="Beginning_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Ending_Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SalesByCategory">
+      <Parameter Name="CategoryName" Mode="In" Type="String" />
+      <Parameter Name="OrdYear" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SalesbyYear">
+      <Parameter Name="Beginning_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Ending_Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_TenMostExpensiveProducts" ReturnType="Collection(YSIDGAModel.SP_TenMostExpensiveProducts_Result)" />
+    <EntitySet Name="Menus" EntityType="YSIDGAModel.Menu" />
+    <AssociationSet Name="FK_Menus_Menus" Association="YSIDGAModel.FK_Menus_Menus">
+      <End Role="Menu" EntitySet="Menus" />
+      <End Role="Menu1" EntitySet="Menus" />
+    </AssociationSet>
+    <EntitySet Name="ProductsInventories" EntityType="YSIDGAModel.ProductsInventory" />
+    <EntitySet Name="sysdiagrams" EntityType="YSIDGAModel.sysdiagram" />
+    <EntitySet Name="ReceiveHeaders" EntityType="YSIDGAModel.ReceiveHeader" />
+    <EntitySet Name="MasterPeriods" EntityType="YSIDGAModel.MasterPeriod" />
+    <EntitySet Name="MasterUnits" EntityType="YSIDGAModel.MasterUnit" />
+    <EntitySet Name="TermOfPays" EntityType="YSIDGAModel.TermOfPay" />
+    <EntitySet Name="StockCards" EntityType="YSIDGAModel.StockCard" />
+    <EntitySet Name="MasterCurrencies" EntityType="YSIDGAModel.MasterCurrency" />
+    <EntitySet Name="POHeaders" EntityType="YSIDGAModel.POHeader" />
+    <EntitySet Name="MasterAssetsTypes" EntityType="YSIDGAModel.MasterAssetsType" />
+    <EntitySet Name="MasterRequestTypes" EntityType="YSIDGAModel.MasterRequestType" />
+    <EntitySet Name="MasterTransTypes" EntityType="YSIDGAModel.MasterTransType" />
+    <EntitySet Name="PODetails" EntityType="YSIDGAModel.PODetail" />
+    <EntitySet Name="ReceiveDetails" EntityType="YSIDGAModel.ReceiveDetail" />
+    <EntitySet Name="ReleaseDetails" EntityType="YSIDGAModel.ReleaseDetail" />
+    <EntitySet Name="ReleaseHeaders" EntityType="YSIDGAModel.ReleaseHeader" />
+    <EntitySet Name="RequestDetails" EntityType="YSIDGAModel.RequestDetail" />
+    <EntitySet Name="RequestHeaders" EntityType="YSIDGAModel.RequestHeader" />
+    <AssociationSet Name="FK_RequestDetails_RequestHeader" Association="YSIDGAModel.FK_RequestDetails_RequestHeader">
+      <End Role="RequestHeader" EntitySet="RequestHeaders" />
+      <End Role="RequestDetail" EntitySet="RequestDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PODetail_POHeader" Association="YSIDGAModel.FK_PODetail_POHeader">
+      <End Role="POHeader" EntitySet="POHeaders" />
+      <End Role="PODetail" EntitySet="PODetails" />
+    </AssociationSet>
+    <EntitySet Name="MasterOffices" EntityType="YSIDGAModel.MasterOffice" />
+    <EntitySet Name="Divisions" EntityType="YSIDGAModel.Division" />
+    <EntitySet Name="MasterTitles" EntityType="YSIDGAModel.MasterTitle" />
+    <EntitySet Name="CustomerDemographics" EntityType="YSIDGAModel.CustomerDemographic" />
+    <EntitySet Name="Customers" EntityType="YSIDGAModel.Customer" />
+    <EntitySet Name="OrderDetails" EntityType="YSIDGAModel.OrderDetail" />
+    <EntitySet Name="Orders" EntityType="YSIDGAModel.Order" />
+    <AssociationSet Name="FK_Orders_Customers" Association="YSIDGAModel.FK_Orders_Customers">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Details_Orders" Association="YSIDGAModel.FK_Order_Details_Orders">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Details_Products" Association="YSIDGAModel.FK_Order_Details_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Shippers" Association="YSIDGAModel.FK_Orders_Shippers">
+      <End Role="Shipper" EntitySet="Shippers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerCustomerDemo" Association="YSIDGAModel.CustomerCustomerDemo">
+      <End Role="CustomerDemographic" EntitySet="CustomerDemographics" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <EntitySet Name="Departements" EntityType="YSIDGAModel.Departement" />
+    <AssociationSet Name="FK_Departemen_Division" Association="YSIDGAModel.FK_Departemen_Division">
+      <End Role="Division" EntitySet="Divisions" />
+      <End Role="Departement" EntitySet="Departements" />
+    </AssociationSet>
+    <EntitySet Name="Employees" EntityType="YSIDGAModel.Employee" />
+    <AssociationSet Name="FK_Employees_Employees" Association="YSIDGAModel.FK_Employees_Employees">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employee1" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_MasterOffice" Association="YSIDGAModel.FK_Employees_MasterOffice">
+      <End Role="MasterOffice" EntitySet="MasterOffices" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Employees" Association="YSIDGAModel.FK_Orders_Employees">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <EntitySet Name="RBAC_UserProfile" EntityType="YSIDGAModel.RBAC_UserProfile" />
+    <FunctionImport Name="SPI_Categories" ReturnType="Collection(YSIDGAModel.SPI_Categories_Result)" />
+    <FunctionImport Name="SPI_Customers" ReturnType="Collection(YSIDGAModel.SPI_Customers_Result)" />
+    <FunctionImport Name="SPI_Departement" />
+    <FunctionImport Name="SPI_Employee" ReturnType="Collection(YSIDGAModel.SPI_Employee_Result)" />
+    <FunctionImport Name="SPI_PODetail" ReturnType="Collection(YSIDGAModel.SPI_PODetail_Result)">
+      <Parameter Name="POID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPI_Products" ReturnType="Collection(YSIDGAModel.SPI_Products_Result)" />
+    <FunctionImport Name="SPI_ProductsInventory" ReturnType="Collection(YSIDGAModel.SPI_ProductsInventory_Result)" />
+    <FunctionImport Name="SPI_RequestDetail" ReturnType="Collection(YSIDGAModel.SPI_RequestDetail_Result)">
+      <Parameter Name="RequestID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPI_Suppliers" ReturnType="Collection(YSIDGAModel.SPI_Suppliers_Result)" />
+    <FunctionImport Name="SPI_POHeader" ReturnType="Collection(YSIDGAModel.SPI_POHeader_Result)" />
+    <FunctionImport Name="SPI_RequestHeader" ReturnType="Collection(YSIDGAModel.SPI_RequestHeader_Result)" />
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Products" Relationship="YSIDGAModel.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="QuantityPerUnit" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="UnitsInStock" Type="Int16" />
+    <Property Name="UnitsOnOrder" Type="Int16" />
+    <Property Name="ReorderLevel" Type="Int16" />
+    <Property Name="Discontinued" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="YSIDGAModel.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+    <NavigationProperty Name="Supplier" Relationship="YSIDGAModel.FK_Products_Suppliers" FromRole="Products" ToRole="Suppliers" />
+    <Property Type="String" Name="ProductCode" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Type="String" Name="Specs" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="UnitID" />
+    <Property Type="DateTime" Name="FirstInputDate" Precision="0" />
+    <Property Name="PhotoPath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PhotoName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OrderDetails" Relationship="YSIDGAModel.FK_Order_Details_Products" FromRole="Product" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="RegionID" />
+    </Key>
+    <Property Name="RegionID" Type="Int32" Nullable="false" />
+    <Property Name="RegionDescription" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Territories" Relationship="YSIDGAModel.FK_Territories_Region" FromRole="Region" ToRole="Territories" />
+  </EntityType>
+  <EntityType Name="Shipper">
+    <Key>
+      <PropertyRef Name="ShipperID" />
+    </Key>
+    <Property Name="ShipperID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Orders" Relationship="YSIDGAModel.FK_Orders_Shippers" FromRole="Shipper" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ContactName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="60" Unicode="false" FixedLength="false" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Region" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Products" Relationship="YSIDGAModel.FK_Products_Suppliers" FromRole="Suppliers" ToRole="Products" />
+    <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CellPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Npwp" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="TermID" />
+  </EntityType>
+  <EntityType Name="Territory">
+    <Key>
+      <PropertyRef Name="TerritoryID" />
+    </Key>
+    <Property Name="TerritoryID" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="TerritoryDescription" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+    <Property Name="RegionID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Region" Relationship="YSIDGAModel.FK_Territories_Region" FromRole="Territories" ToRole="Region" />
+  </EntityType>
+  <Association Name="FK_Products_Categories">
+    <End Role="Categories" Type="YSIDGAModel.Category" Multiplicity="0..1" />
+    <End Role="Products" Type="YSIDGAModel.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Suppliers">
+    <End Role="Suppliers" Type="YSIDGAModel.Supplier" Multiplicity="0..1" />
+    <End Role="Products" Type="YSIDGAModel.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Territories_Region">
+    <End Role="Region" Type="YSIDGAModel.Region" Multiplicity="1" />
+    <End Role="Territories" Type="YSIDGAModel.Territory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="RegionID" />
+      </Principal>
+      <Dependent Role="Territories">
+        <PropertyRef Name="RegionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="SP_CustOrdersOrders_Result">
+    <Property Type="Int32" Name="OrderID" Nullable="false" />
+    <Property Type="DateTime" Name="OrderDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="RequiredDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ShippedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SP_TenMostExpensiveProducts_Result">
+    <Property Type="String" Name="TenMostExpensiveProducts" Nullable="false" MaxLength="40" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="19" />
+  </ComplexType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ParentId" />
+    <NavigationProperty Name="Menus1" Relationship="YSIDGAModel.FK_Menus_Menus" FromRole="Menu" ToRole="Menu1" />
+    <NavigationProperty Name="Menu1" Relationship="YSIDGAModel.FK_Menus_Menus" FromRole="Menu1" ToRole="Menu" />
+  </EntityType>
+  <Association Name="FK_Menus_Menus">
+    <End Type="YSIDGAModel.Menu" Role="Menu" Multiplicity="0..1" />
+    <End Type="YSIDGAModel.Menu" Role="Menu1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Menu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProductsInventory">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="DepartemenID" />
+    </Key>
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="Int16" Name="UnitsInStock" />
+    <Property Type="Int16" Name="UnitsOnOrder" />
+    <Property Type="DateTime" Name="LastUpdate" Precision="7" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="PhotoPath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DepartemenID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="version" />
+    <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ReceiveHeader">
+    <Key>
+      <PropertyRef Name="ReceiveID" />
+    </Key>
+    <Property Type="Int32" Name="ReceiveID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ReceiveNo" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="ReceiveDate" Precision="3" />
+    <Property Type="String" Name="ReceiptReff" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SupplierCode" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="TotalReceive" />
+    <Property Type="String" Name="UserID" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MasterPeriod">
+    <Key>
+      <PropertyRef Name="PeriodID" />
+    </Key>
+    <Property Type="Int32" Name="PeriodID" Nullable="false" />
+    <Property Type="DateTime" Name="StartPeriod" Nullable="false" Precision="0" />
+    <Property Type="DateTime" Name="EndPeriod" Nullable="false" Precision="0" />
+    <Property Type="String" Name="PeriodName" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Type="Boolean" Name="ClosePeriod" />
+  </EntityType>
+  <EntityType Name="MasterUnit">
+    <Key>
+      <PropertyRef Name="UnitID" />
+    </Key>
+    <Property Type="Int32" Name="UnitID" Nullable="false" />
+    <Property Type="String" Name="UnitName" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UnitDesc" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TermOfPay">
+    <Key>
+      <PropertyRef Name="TermID" />
+    </Key>
+    <Property Type="Int16" Name="TermID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="TermDays" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StockCard">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Type="Int32" Name="TransactionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TransactionNo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TransCode" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="TransactionDate" Precision="3" />
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="Note" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="TransactionIN" />
+    <Property Type="Int64" Name="TransactionOUT" />
+    <Property Name="DepartemenID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MasterCurrency">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int16" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CurrencyCode" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="CurrencyName" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="POHeader">
+    <Key>
+      <PropertyRef Name="POID" />
+    </Key>
+    <Property Type="Int32" Name="POID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RequestID" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PONo" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="RequiredDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="TotalRequest" Nullable="false" />
+    <Property Type="String" Name="ReffNo" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="RequestTypeID" Nullable="false" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="Int32" Name="MgrID" />
+    <Property Type="Int32" Name="GAMgrID" />
+    <Property Type="Int32" Name="GMID" />
+    <Property Type="Decimal" Name="TotalPrice" Precision="19" Scale="4" />
+    <Property Type="Int16" Name="CurrencyID" Nullable="false" />
+    <Property Type="Int16" Name="AssetsTypeID" Nullable="false" />
+    <Property Type="String" Name="Remarks" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PODetails" Relationship="YSIDGAModel.FK_PODetail_POHeader" FromRole="POHeader" ToRole="PODetail" />
+    <Property Name="PODate" Type="DateTime" Precision="3" />
+    <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DepartemenID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MasterAssetsType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int16" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AssetsType" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AssetsNote" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MasterRequestType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int16" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RequestType" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RequestNote" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MasterTransType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int16" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TransCode" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TransName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PODetail">
+    <Key>
+      <PropertyRef Name="PODetailID" />
+    </Key>
+    <Property Type="Int32" Name="PODetailID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="POID" Nullable="false" />
+    <Property Type="Int32" Name="RequestID" Nullable="false" />
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="UnitID" Nullable="false" />
+    <Property Type="Int32" Name="Quantity" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Precision="19" Scale="4" />
+    <Property Type="String" Name="Remarks" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="POHeader" Relationship="YSIDGAModel.FK_PODetail_POHeader" FromRole="PODetail" ToRole="POHeader" />
+  </EntityType>
+  <EntityType Name="ReceiveDetail">
+    <Key>
+      <PropertyRef Name="ReceiveDetailID" />
+    </Key>
+    <Property Type="Int32" Name="ReceiveDetailID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ReceiveID" Nullable="false" />
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="Int32" Name="StockBegin" />
+    <Property Type="Int32" Name="QtyReceive" Nullable="false" />
+    <Property Type="Int32" Name="StockFinal" />
+  </EntityType>
+  <EntityType Name="ReleaseDetail">
+    <Key>
+      <PropertyRef Name="ReleaseDetailID" />
+    </Key>
+    <Property Type="Int32" Name="ReleaseDetailID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ReleaseID" Nullable="false" />
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="Int32" Name="StockBegin" />
+    <Property Type="Int32" Name="QtyRequest" />
+    <Property Type="Int32" Name="QtyRelease" Nullable="false" />
+    <Property Type="Int32" Name="StockFinal" />
+    <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ReleaseHeader">
+    <Key>
+      <PropertyRef Name="ReleaseID" />
+    </Key>
+    <Property Type="Int32" Name="ReleaseID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="RequestID" Nullable="false" />
+    <Property Type="String" Name="ReleaseNo" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="ReleaseDate" Precision="3" />
+    <Property Type="Int32" Name="TotalRequest" />
+    <Property Type="Int32" Name="TotalRelease" />
+    <Property Type="String" Name="ReleaseNote" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserID" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DepartemenID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RequestDetail">
+    <Key>
+      <PropertyRef Name="RequestDetailID" />
+    </Key>
+    <Property Type="Int32" Name="RequestDetailID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="RequestID" Nullable="false" />
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="UnitID" Nullable="false" />
+    <Property Type="Int32" Name="Quantity" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Precision="19" Scale="4" />
+    <Property Type="String" Name="Remarks" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RequestHeader" Relationship="YSIDGAModel.FK_RequestDetails_RequestHeader" FromRole="RequestDetail" ToRole="RequestHeader" />
+  </EntityType>
+  <EntityType Name="RequestHeader">
+    <Key>
+      <PropertyRef Name="RequestID" />
+    </Key>
+    <Property Type="Int32" Name="RequestID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RequestNo" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="RequiredDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="TotalRequest" Nullable="false" />
+    <Property Type="String" Name="ReffNo" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="RequestTypeID" Nullable="false" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="Int32" Name="MgrID" />
+    <Property Type="Int32" Name="GAMgrID" />
+    <Property Type="Int32" Name="GMID" />
+    <Property Type="Decimal" Name="TotalPrice" Precision="19" Scale="4" />
+    <Property Type="Int16" Name="CurrencyID" Nullable="false" />
+    <Property Type="Int16" Name="AssetsTypeID" Nullable="false" />
+    <Property Type="String" Name="Remarks" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ReqSeq" MaxLength="3" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="RequestDetails" Relationship="YSIDGAModel.FK_RequestDetails_RequestHeader" FromRole="RequestHeader" ToRole="RequestDetail" />
+    <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DepartemenID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_RequestDetails_RequestHeader">
+    <End Type="YSIDGAModel.RequestHeader" Role="RequestHeader" Multiplicity="1" />
+    <End Type="YSIDGAModel.RequestDetail" Role="RequestDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestHeader">
+        <PropertyRef Name="RequestID" />
+      </Principal>
+      <Dependent Role="RequestDetail">
+        <PropertyRef Name="RequestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PODetail_POHeader">
+    <End Type="YSIDGAModel.POHeader" Role="POHeader" Multiplicity="1" />
+    <End Type="YSIDGAModel.PODetail" Role="PODetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POHeader">
+        <PropertyRef Name="POID" />
+      </Principal>
+      <Dependent Role="PODetail">
+        <PropertyRef Name="POID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MasterOffice">
+    <Key>
+      <PropertyRef Name="OfficeID" />
+    </Key>
+    <Property Name="OfficeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OfficeCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="OfficeName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employees" Relationship="YSIDGAModel.FK_Employees_MasterOffice" FromRole="MasterOffice" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="DivisionID" />
+    </Key>
+    <Property Name="DivisionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DivisionName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Departements" Relationship="YSIDGAModel.FK_Departemen_Division" FromRole="Division" ToRole="Departement" />
+  </EntityType>
+  <EntityType Name="MasterTitle">
+    <Key>
+      <PropertyRef Name="TitleID" />
+    </Key>
+    <Property Name="TitleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TitleName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CustomerDemographic">
+    <Key>
+      <PropertyRef Name="CustomerTypeID" />
+    </Key>
+    <Property Name="CustomerTypeID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CustomerDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customers" Relationship="YSIDGAModel.CustomerCustomerDemo" FromRole="CustomerDemographic" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="YSIDGAModel.FK_Orders_Customers" FromRole="Customer" ToRole="Order" />
+    <NavigationProperty Name="CustomerDemographics" Relationship="YSIDGAModel.CustomerCustomerDemo" FromRole="Customer" ToRole="CustomerDemographic" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="QtyRelease" Type="Int32" />
+    <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Discount" Type="Single" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="YSIDGAModel.FK_Order_Details_Orders" FromRole="OrderDetail" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="YSIDGAModel.FK_Order_Details_Products" FromRole="OrderDetail" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="OrderDate" Type="DateTime" Precision="3" />
+    <Property Name="RequiredDate" Type="DateTime" Precision="3" />
+    <Property Name="TotalOrder" Type="Int32" />
+    <Property Name="ReffNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ShipVia" Type="Int32" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="ShipName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="ShipAddress" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="ShipCity" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ShipRegion" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ShipCountry" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ShippedDate" Type="DateTime" Precision="3" />
+    <Property Name="TotalRelease" Type="Int32" />
+    <Property Name="Freight" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Customer" Relationship="YSIDGAModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
+    <NavigationProperty Name="OrderDetails" Relationship="YSIDGAModel.FK_Order_Details_Orders" FromRole="Order" ToRole="OrderDetail" />
+    <NavigationProperty Name="Shipper" Relationship="YSIDGAModel.FK_Orders_Shippers" FromRole="Order" ToRole="Shipper" />
+    <NavigationProperty Name="Employee" Relationship="YSIDGAModel.FK_Orders_Employees" FromRole="Order" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK_Orders_Customers">
+    <End Type="YSIDGAModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="YSIDGAModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Details_Orders">
+    <End Type="YSIDGAModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="YSIDGAModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Details_Products">
+    <End Type="YSIDGAModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="YSIDGAModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Shippers">
+    <End Type="YSIDGAModel.Shipper" Role="Shipper" Multiplicity="0..1" />
+    <End Type="YSIDGAModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shipper">
+        <PropertyRef Name="ShipperID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ShipVia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerCustomerDemo">
+    <End Type="YSIDGAModel.CustomerDemographic" Role="CustomerDemographic" Multiplicity="*" />
+    <End Type="YSIDGAModel.Customer" Role="Customer" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Departement">
+    <Key>
+      <PropertyRef Name="DepartemenID" />
+    </Key>
+    <Property Name="DepartemenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartemenName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DivisionID" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Division" Relationship="YSIDGAModel.FK_Departemen_Division" FromRole="Departement" ToRole="Division" />
+  </EntityType>
+  <Association Name="FK_Departemen_Division">
+    <End Type="YSIDGAModel.Division" Role="Division" Multiplicity="1" />
+    <End Type="YSIDGAModel.Departement" Role="Departement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="DivisionID" />
+      </Principal>
+      <Dependent Role="Departement">
+        <PropertyRef Name="DivisionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TitleID" Type="Int16" />
+    <Property Name="TitleOfCourtesy" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDate" Type="DateTime" Precision="3" />
+    <Property Name="HireDate" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="HomePhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Extension" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ReportsTo" Type="Int32" />
+    <Property Name="PhotoPath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PhotoName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="OfficeID" Type="Int32" />
+    <Property Name="DepartemenID" Type="Int32" />
+    <NavigationProperty Name="Employees1" Relationship="YSIDGAModel.FK_Employees_Employees" FromRole="Employee" ToRole="Employee1" />
+    <NavigationProperty Name="Employee1" Relationship="YSIDGAModel.FK_Employees_Employees" FromRole="Employee1" ToRole="Employee" />
+    <NavigationProperty Name="MasterOffice" Relationship="YSIDGAModel.FK_Employees_MasterOffice" FromRole="Employee" ToRole="MasterOffice" />
+    <NavigationProperty Name="Orders" Relationship="YSIDGAModel.FK_Orders_Employees" FromRole="Employee" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_Employees_Employees">
+    <End Type="YSIDGAModel.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="YSIDGAModel.Employee" Role="Employee1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Employee1">
+        <PropertyRef Name="ReportsTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_MasterOffice">
+    <End Type="YSIDGAModel.MasterOffice" Role="MasterOffice" Multiplicity="0..1" />
+    <End Type="YSIDGAModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterOffice">
+        <PropertyRef Name="OfficeID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="OfficeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Employees">
+    <End Type="YSIDGAModel.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="YSIDGAModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RBAC_UserProfile">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="SPI_Categories_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
+    <Property Type="Binary" Name="Picture" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="SPI_Customers_Result">
+    <Property Type="String" Name="CustomerID" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ContactName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactTitle" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Fax" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SPI_Employee_Result">
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="TitleName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="TitleOfCourtesy" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="BirthDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="HireDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Extension" Nullable="true" MaxLength="5" />
+    <Property Type="Binary" Name="Photo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="ReportsTo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PhotoPath" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="OfficeCode" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="OfficeName" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="DepartemenName" Nullable="true" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="SPI_PODetail_Result">
+    <Property Type="Int32" Name="PODetailID" Nullable="false" />
+    <Property Type="Int32" Name="POID" Nullable="false" />
+    <Property Type="Int32" Name="RequestID" Nullable="false" />
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="false" Precision="19" />
+    <Property Type="Int32" Name="UnitID" Nullable="false" />
+    <Property Type="String" Name="UnitName" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="Quantity" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="19" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SPI_Products_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="QuantityPerUnit" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="19" />
+    <Property Type="String" Name="UnitName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Specs" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ReorderLevel" Nullable="true" />
+    <Property Type="Boolean" Name="Discontinued" Nullable="false" />
+    <Property Type="String" Name="FirstInputDate" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="SPI_ProductsInventory_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="UnitName" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="UnitsInStock" Nullable="true" />
+    <Property Type="Int32" Name="UnitsOnOrder" Nullable="true" />
+    <Property Type="Int32" Name="DepartemenID" Nullable="false" />
+    <Property Type="String" Name="DepartemenName" Nullable="true" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="SPI_RequestDetail_Result">
+    <Property Type="Int32" Name="RequestDetailID" Nullable="false" />
+    <Property Type="Int32" Name="RequestID" Nullable="false" />
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="false" Precision="19" />
+    <Property Type="Int32" Name="UnitID" Nullable="false" />
+    <Property Type="String" Name="UnitName" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="Quantity" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="19" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SPI_Suppliers_Result">
+    <Property Type="Int32" Name="SupplierID" Nullable="false" />
+    <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ContactName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CellPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Npwp" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="TermDays" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SPI_POHeader_Result">
+    <Property Type="Int32" Name="POID" Nullable="false" />
+    <Property Type="String" Name="PONo" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="PODate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="RequestID" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="RequestNo" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="DepartemenName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="RequestDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="RequiredDate" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="TotalRequest" Nullable="false" />
+    <Property Type="String" Name="ReffNo" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="RequestType" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Requester" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Manager" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GAMgr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GM" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="TotalPrice" Nullable="true" Precision="19" />
+    <Property Type="String" Name="CurrencyCode" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="AssetsType" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="SPI_RequestHeader_Result">
+    <Property Type="Int32" Name="RequestID" Nullable="false" />
+    <Property Type="String" Name="RequestNo" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="DepartemenName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="RequestDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="RequiredDate" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="TotalRequest" Nullable="false" />
+    <Property Type="String" Name="ReffNo" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="RequestType" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Requester" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Manager" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GAMgr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GM" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="TotalPrice" Nullable="true" Precision="19" />
+    <Property Type="String" Name="CurrencyCode" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="AssetsType" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="250" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,47 @@
+﻿@model Gapura.Models.MasterPeriod
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>MasterPeriod</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PeriodID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PeriodID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StartPeriod)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartPeriod)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EndPeriod)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndPeriod)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PeriodName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PeriodName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

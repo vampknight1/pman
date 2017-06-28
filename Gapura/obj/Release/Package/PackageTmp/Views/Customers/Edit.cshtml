@@ -1,0 +1,173 @@
+﻿@model Gapura.BLL.ViewModel.CustomerVM
+
+@{
+    ViewBag.Title = "Edit Customer";
+}
+
+<style>
+    div.editor-label {
+        margin-bottom: 14px !important;
+    }
+</style>
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-edit"></i><span class="break"></span>Edit Customer</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Edit", "Customers", FormMethod.Post, new
+        {
+            @class = "form-horizontal",
+            @id = "myForm"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend></legend>
+
+                    <div class="control-group">
+                        @Html.Label("CustomerID", "Customer Code", new { @class = "control-label" })
+
+                        @Html.TextBox("CustomerID", @ViewData["CustomerID"], new { @readonly = "readonly" })
+                        @Html.ValidationMessageFor(m => m.CustomerID)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("CompanyName", "Customer", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.CompanyName)
+                        @Html.ValidationMessageFor(m => m.CompanyName)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("ContactName", "Contact Name", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.ContactName)
+                        @Html.ValidationMessageFor(m => m.ContactName)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("ContactTitle", "Contact Title", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.ContactTitle)
+                        @Html.ValidationMessageFor(m => m.ContactTitle)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("Address", "Address", new { @class = "control-label" })
+
+                        @Html.TextAreaFor(m => m.Address)
+                        @Html.ValidationMessageFor(m => m.Address)
+                    </div>
+
+                    <!-- #region Not Used -->
+                    @*<div class="control-group">
+                        @Html.Label("City", "City", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.City)
+                        @Html.ValidationMessageFor(m => m.City)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("Region", "Region", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.Region)
+                        @Html.ValidationMessageFor(m => m.Region)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("PostaalCode", "Postal Code", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.PostalCode)
+                        @Html.ValidationMessageFor(m => m.PostalCode)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("Country", "Country", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.Country)
+                        @Html.ValidationMessageFor(m => m.Country)
+                    </div>*@
+                    <!-- #endregion -->
+
+                    <div class="control-group">
+                        @Html.Label("Phone", "Phone", new { @class = "control-label", @type = "tel" })
+
+                        @Html.EditorFor(m => m.Phone)
+                        @Html.ValidationMessageFor(m => m.Phone)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("Fax", "Fax", new { @class = "control-label", @type = "tel" })
+
+                        @Html.EditorFor(m => m.Fax)
+                        @Html.ValidationMessageFor(m => m.Fax)
+                    </div>
+
+                    <div class="form-actions">
+                        <input type="button" value="Save" class="btn btn-success" id="btnSave" />
+                        <input type="reset" value="Reset" class="btn" />
+                        <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                        <a href="@Url.Action("Delete", new { id = @Html.DisplayFor(m => m.CustomerID) })" class="btn btn-danger">Delete</a>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; display: none" id="divLoader">
+    <img src="../../Content/img/spinner-mini.gif" width="30" />
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    $(document).ready(function () {
+
+        $('#btnSave').click(function () {
+
+            if (!$(myForm).valid()) {
+                return false;
+            }
+
+            $('#divLoader').show();
+            var data = $('#myForm').serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: '/Customers/Edit',
+                data: data,
+                success: function (response) {
+                    alert('Data Saved ! ');
+                    $('#divLoader').hide();
+                }
+                //,error: function (response) {
+                //    alert('Error, Please try again ! ' + response);
+                //}
+            })
+            .fail(function (xhr, status, errorThrown) {
+                alert("Sorry, there was a problem !");
+                console.log("Error: " + errorThrown);
+                console.log("Status: " + status);
+                console.dir(xhr);
+            });
+        });
+    });
+</script>

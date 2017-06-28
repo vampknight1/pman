@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2532B8C-3EB3-4DA3-AF1F-7B7972316533}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gapura.BLL</RootNamespace>
+    <AssemblyName>Gapura.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\CustomerRepo.cs" />
+    <Compile Include="DAL\ICustomerRepo.cs" />
+    <Compile Include="GlobalVar\DecimalBinder.cs" />
+    <Compile Include="GlobalVar\DecimalModelBinder.cs" />
+    <Compile Include="GlobalVar\DecimalNullableModelBinder.cs" />
+    <Compile Include="GlobalVar\DefaultCustomBinder.cs" />
+    <Compile Include="GlobalVar\FloatModelBinder.cs" />
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerDemographic.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Departement.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Division.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GapuraEntities.Context.cs">
+      <DependentUpon>GapuraEntities.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\GapuraEntities.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\GapuraEntities.Designer.cs">
+      <DependentUpon>GapuraEntities.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="GlobalVar\CollectionEditingHtmlExtensions.cs" />
+    <Compile Include="GlobalVar\CustomHtmlHelpers.cs" />
+    <Compile Include="GlobalVar\JQueryDataTableParamModel.cs" />
+    <Compile Include="GlobalVar\ListExtensions.cs" />
+    <Compile Include="GlobalVar\RequestHeader.cs" />
+    <Compile Include="Models\MasterAssetsType.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MasterCurrency.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MasterOffice.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MasterPeriod.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MasterRequestType.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MasterTitle.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MasterTransType.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MasterUnit.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Menu.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelMetadata\GapuraMetadata.cs" />
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetail.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PODetail.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\POHeader.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductsInventory.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RBAC\AccountModels.cs" />
+    <Compile Include="Models\RBAC\ManageViewModels.cs" />
+    <Compile Include="Models\RBAC\Menu1Model.cs" />
+    <Compile Include="Models\RBAC_UserProfile.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReceiveDetail.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReceiveHeader.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Region.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReleaseDetail.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReleaseHeader.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RequestDetail.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RequestHeader.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shipper.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPI_Categories_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPI_Customers_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPI_Employee_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPI_PODetail_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPI_POHeader_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPI_ProductsInventory_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPI_Products_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPI_RequestDetail_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPI_RequestHeader_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SPI_Suppliers_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_CustOrdersOrders_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_TenMostExpensiveProducts_Result.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StockCard.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Supplier.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TermOfPay.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Territory.cs">
+      <DependentUpon>GapuraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\CustomerVM.cs" />
+    <Compile Include="ViewModel\EmployeeVM.cs" />
+    <Compile Include="ViewModel\ProductsInventoryCategoryVM.cs" />
+    <Compile Include="ViewModel\ProductsInventoryProductVM.cs" />
+    <Compile Include="ViewModel\ReqHDVM.cs" />
+    <Compile Include="ViewModel\RequestHDVM.cs" />
+    <Compile Include="ViewModel\SupplierVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Models\GapuraEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GapuraEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GapuraEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GapuraEntities.edmx</DependentUpon>
+      <LastGenOutput>GapuraEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\GapuraEntities.edmx.diagram">
+      <DependentUpon>GapuraEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\GapuraEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GapuraEntities.edmx</DependentUpon>
+      <LastGenOutput>GapuraEntities.cs</LastGenOutput>
+    </Content>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

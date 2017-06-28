@@ -1,0 +1,45 @@
+﻿@model Gapura.Models.MenuModel   
+@{
+  ViewBag.Title = "Index";
+}
+
+<link href="Content/css/styles.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">   
+	$(document).ready(function () {
+		$("#accordianMenu h3").click(function () {          
+			$("#accordianMenu ul ul").slideUp();           
+			if (!$(this).next().is(":visible")) {
+				$(this).next().slideDown();
+			}
+		});
+	});
+</script>
+
+	@using (Html.BeginForm("Index", "Menu"))
+ { 
+		<div id="accordianMenu">
+		<ul>
+			<li>
+		@{
+	 foreach (var MenuItem in Model.MainMenuModel)
+	 {
+		 var SubMenuItem = Model.SubMenuModel.Where(m => m.MainMenuID == MenuItem.ID);
+	   
+					<h3><a href="@MenuItem.MainMenuURL"> @MenuItem.MainMenuItem </a></h3>
+			  
+		 if (SubMenuItem.Count() > 0)
+		 {
+			<ul>
+				@foreach (var SubItem in SubMenuItem)
+		        {
+				    <li><a href='@SubItem.SubMenuURL'>@SubItem.SubMenuItem</a></li>
+		        }
+			</ul>
+		 }
+	 }
+		}
+		</ul>
+	</div>
+ }

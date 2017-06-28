@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Gapura.BLL.Models.RequestHeader>
+
+@{
+    ViewBag.Title = "Order Request";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-table"></i><span class="break"></span>Order Request.</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Create", "RequestOrder")">
+                    <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                    Add ORDER REQUEST
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            <div style="width: inherit; margin-left: 30px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>-</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DepartemenID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequiredDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TotalRequest)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ReffNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestTypeID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmployeeID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MgrID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GAMgrID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GMID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TotalPrice)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CurrencyID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AssetsTypeID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Remarks)
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            @section Scripts{
+                <script src="~/Scripts/Request/RequestOrder.js"></script>
+            }
+        </div>
+    </div>
+</div>
+<div id="dialog" style="display: none"></div>
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+    td {
+        border: dotted 1px;
+    }
+</style>
+
+@Styles.Render("~/Content/dataTables")
+<link href="~/Content/dataTables/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="@Url.Content("~/Content/dataTables/demo_page.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/dataTables/demo_table_jui.css")" rel="stylesheet" type="text/css" />

@@ -1,0 +1,64 @@
+﻿@model Gapura.Models.ReleaseDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ReleaseDetail</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReleaseID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReleaseID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StockBegin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StockBegin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QtyRequest)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QtyRequest)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QtyRelease)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QtyRelease)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StockFinal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StockFinal)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Note)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Note)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ReleaseDetailID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

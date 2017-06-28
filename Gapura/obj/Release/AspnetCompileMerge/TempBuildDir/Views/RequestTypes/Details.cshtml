@@ -1,0 +1,29 @@
+﻿@model Gapura.Models.MasterRequestType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MasterRequestType</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequestType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequestNote)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestNote)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

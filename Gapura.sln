@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gapura", "Gapura\Gapura.csproj", "{66404EC8-4954-41F2-A82B-C26406B28F19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gapura.BLL", "Gapura.BLL\Gapura.BLL.csproj", "{B2532B8C-3EB3-4DA3-AF1F-7B7972316533}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66404EC8-4954-41F2-A82B-C26406B28F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66404EC8-4954-41F2-A82B-C26406B28F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66404EC8-4954-41F2-A82B-C26406B28F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66404EC8-4954-41F2-A82B-C26406B28F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2532B8C-3EB3-4DA3-AF1F-7B7972316533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2532B8C-3EB3-4DA3-AF1F-7B7972316533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2532B8C-3EB3-4DA3-AF1F-7B7972316533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2532B8C-3EB3-4DA3-AF1F-7B7972316533}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

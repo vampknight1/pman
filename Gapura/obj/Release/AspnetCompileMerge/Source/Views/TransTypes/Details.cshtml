@@ -1,0 +1,29 @@
+﻿@model Gapura.Models.MasterTransType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MasterTransType</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TransCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TransCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TransName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TransName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

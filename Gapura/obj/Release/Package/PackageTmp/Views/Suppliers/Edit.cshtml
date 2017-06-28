@@ -1,0 +1,167 @@
+﻿@model Gapura.BLL.ViewModel.SupplierVM
+
+@{
+    ViewBag.Title = "Edit Supplier";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-edit"></i><span class="break"></span>Edit Supplier</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Index", "Suppliers")" 
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Edit", "Suppliers", FormMethod.Post, new
+        {
+            @class = "form-horizontal",
+            @id = "myForm"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend></legend>
+
+                    @Html.HiddenFor(m => m.SupplierID)
+
+                    <div class="control-group">
+                        @Html.Label("SupplierCode", "Supplier Code", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.SupplierCode)
+                        @Html.ValidationMessageFor(m => m.SupplierCode)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("CategoryID", "Category", new { @class = "control-label" })
+
+                        @Html.DropDownListFor(m => m.CategoryID, Model.CategoryList, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.CategoryID)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("CompanyName", "Company Name", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.CompanyName)
+                        @Html.ValidationMessageFor(m => m.CompanyName)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("Address", "Address", new { @class = "control-label" })
+
+                        @Html.TextAreaFor(m => m.Address)
+                        @Html.ValidationMessageFor(m => m.Address)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("City", "City", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.City)
+                        @Html.ValidationMessageFor(m => m.City)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("Region", "Region", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.Region)
+                        @Html.ValidationMessageFor(m => m.Region)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("ContactName", "Contact Name", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.ContactName)
+                        @Html.ValidationMessageFor(m => m.ContactName)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("Phone", "Phone", new { @class = "control-label", @type = "tel" })
+
+                        @Html.EditorFor(m => m.Phone)
+                        @Html.ValidationMessageFor(m => m.Phone)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("CellPhone", "CellPhone", new { @class = "control-label", @type = "tel" })
+
+                        @Html.EditorFor(m => m.CellPhone)
+                        @Html.ValidationMessageFor(m => m.CellPhone)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("Npwp", "NPWP", new { @class = "control-label" })
+
+                        @Html.EditorFor(m => m.Npwp)
+                        @Html.ValidationMessageFor(m => m.Npwp)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("TermDays", "Term Of Payment", new { @class = "control-label" })
+
+                        @Html.DropDownListFor(m => m.TermID, Model.TermOfPayList, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.TermID)
+                    </div>
+
+                    <div class="form-actions">
+                        <input type="button" value="Save" id="btnSave" class="btn btn-success" />
+                        <input type="reset" value="Reset" class="btn" />
+                        <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                        <a href="@Url.Action("Delete", new { id = @Html.DisplayFor(m => m.SupplierID) })" class="btn btn-danger">Delete</a>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+
+<div id="divLoader" style="text-align: center; display: none">
+    <img src="../../Content/img/spinner-mini.gif" width="30" />
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    $(function () {
+
+        $('#btnSave').click(function () {
+
+            if (!$(myForm).valid()) {
+                return false;
+            }
+
+            $('#divLoader').show();
+            var data = $('#myForm').serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: '/Suppliers/Edit',
+                data: data,
+                success: function (response) {
+                    $('#divLoader').hide();
+                    alert('Data Saved !');
+                }
+            })
+            .fail(function (xhr, status, errorThrown) {
+                alert("Sorry, there was a problem !");
+                console.log("Error: " + errorThrown);
+                console.log("Status: " + status);
+                console.dir(xhr);
+            });
+            //.always(function (xhr, status) {
+            //    alert("The request is complete !");
+            //});
+        });
+    });
+</script>

@@ -1,0 +1,173 @@
+﻿@model Gapura.BLL.Models.POHeader
+
+@{
+    ViewBag.Title = "Create / Update PO";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-pencil"></i><span class="break"></span>Create / Update PO</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            @using (Html.BeginForm("Edit", "POHeader", FormMethod.Post, new
+        {
+            @class = "form-horizontal"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend></legend>
+                    <table class="table table-condensed">
+                        <tr>
+                            <td>PO No</td>
+                            <td>
+                                @Html.HiddenFor(m => m.POID)
+                                @Html.TextBox("PONo", (string)ViewBag.PONo, new { @id = "PONo", @class = "span6 typeahead" })
+                            </td>
+                            <td>Request No</td>
+                            <td>
+                                @Html.HiddenFor(m => m.RequestID)
+                                @Html.TextBox("RequestNo", ViewData["RequestNo"], new { @id = "RequestNo", @readonly = "readonly", @class = "span8 typeahead" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PO Date</td>
+                            <td>
+                                @Html.TextBox("PODate", @ViewData["PODate"], new { @id = "PODate", @class = "span4 typeahead" })
+                                @Html.ValidationMessageFor(m => m.PODate, "", new { style = "color:red;" })
+                            </td>
+                            <td>Request Date</td>
+                            <td>
+                                @Html.TextBox("RequestDate", @ViewData["RequestDate"], new { @id = "RequestDate", @readonly = "readonly", @class = "span6 typeahead" })
+                                @Html.ValidationMessageFor(m => m.RequestDate, "", new { style = "color:red;" })
+                            </td>
+                            <td>Required Date</td>
+                            <td>
+                                @Html.TextBox("RequiredDate", @ViewData["RequiredDate"], new { @id = "RequiredDate", @readonly = "readonly", @class = "span6 typeahead" })
+                                @Html.ValidationMessageFor(m => m.RequiredDate, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Reff. No</td>
+                            <td>
+                                @Html.TextBox("ReffNo", @ViewData["ReffNo"], new { @id = "ReffNo", @class = "span7 typeahead" })
+                                @Html.ValidationMessageFor(m => m.ReffNo, "", new { style = "color:red;" })
+                            </td>
+                            <td>Request Type</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.RequestTypeID, null, new { @class = "span6 typeahead" })
+                                @Html.ValidationMessageFor(m => m.RequestTypeID, "", new { style = "color:red;" })
+                            </td>
+                            <td>Assets Type</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.AssetsTypeID, null, new { @class = "span9 typeahead" })
+                                @Html.ValidationMessageFor(m => m.AssetsTypeID, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Requester</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.EmployeeID, null, new { @class = "span8 typeahead" })
+                                @Html.ValidationMessageFor(m => m.EmployeeID, "", new { style = "color:red;" })
+                            </td>
+                            <td>Departemen</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.DepartemenID, null, new { @class = "span15 typeahead" })
+                                @Html.ValidationMessageFor(m => m.DepartemenID, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Currency</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.CurrencyID, null, new { @class = "span4 typeahead" })
+                                @Html.ValidationMessageFor(m => m.CurrencyID, "", new { style = "color:red;" })
+                            </td>
+                            <td>Remarks</td>
+                            <td colspan="7">
+                                @Html.TextArea("Remarks", (string)ViewBag.Remarks, new { @id = "Remarks", @rows = "2", @class = "span4 typeahead" })
+                                @Html.ValidationMessageFor(m => m.Remarks, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <h4><b><u>List of PO Item</u></b></h4>
+                    </legend>
+                    @Html.Partial("_ListPODetail", ViewData["PODetails"])
+
+                    <table class="table table-responsive">
+                        <tr>
+                            <td>Total Request</td>
+                            <td>
+                                @Html.HiddenFor(m => m.TotalRequest)
+                                @Html.EditorFor(m => m.TotalRequest, new { htmlAttributes = new { @id = "TotalRequest", @class = "span4 typeahead", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(m => m.TotalRequest, "", new { style = "color:red;" })
+                            </td>
+                            <td>Total Price</td>
+                            <td>
+                                @Html.HiddenFor(m => m.TotalPrice)
+                                @Html.EditorFor(m => m.TotalPrice, new { htmlAttributes = new { @id = "TotalPrice", @class = "span6 typeahead", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(m => m.TotalPrice, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <h4><b><u>Management Approval</u></b></h4>
+                    </legend>
+                    <table>
+                        <tr>
+                            <td>Manager</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.MgrID, null, "--Select Manager--",  new { @class = "span12 typeahead", @disabled = "disabled" })
+                                @Html.ValidationMessageFor(m => m.MgrID, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GA Manager</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.GAMgrID, null, "--Select GA Manager--", new { @class = "span12 typeahead" })
+                                @Html.ValidationMessageFor(m => m.GAMgrID, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GM</td>
+                            <td>
+                                @Html.DropDownListFor(m => m.GMID, null, "--Select GM--", new { @class = "span12 typeahead", @disabled = "disabled" })
+                                @Html.ValidationMessageFor(m => m.GMID, "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <div class="form-actions">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                    <input type="reset" value="Reset" class="btn" />
+                    <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                    <a href="@Url.Action("Delete", new { id = @Html.DisplayFor(model => model.POID) })" class="btn btn-danger">Delete</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="~/Scripts/PO/EditPO.js"></script>

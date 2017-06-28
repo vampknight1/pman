@@ -1,0 +1,86 @@
+﻿@model Gapura.Models.ReleaseDetail
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ReleaseDetail</legend>
+
+        @Html.HiddenFor(model => model.ReleaseDetailID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReleaseID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReleaseID)
+            @Html.ValidationMessageFor(model => model.ReleaseID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductID)
+            @Html.ValidationMessageFor(model => model.ProductID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StockBegin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StockBegin)
+            @Html.ValidationMessageFor(model => model.StockBegin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QtyRequest)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QtyRequest)
+            @Html.ValidationMessageFor(model => model.QtyRequest)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QtyRelease)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QtyRelease)
+            @Html.ValidationMessageFor(model => model.QtyRelease)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StockFinal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StockFinal)
+            @Html.ValidationMessageFor(model => model.StockFinal)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Note)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Note)
+            @Html.ValidationMessageFor(model => model.Note)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

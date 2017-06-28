@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Gapura.BLL.Models.Customer>
+
+@{
+    ViewBag.Title = "Customer List";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-table"></i><span class="break"></span>Master Data Customer</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Create", "Customers")">
+                    <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                    Add New Customer
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            <div style="width: inherit; margin-left: 30px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CompanyName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ContactName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ContactTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            <!-- #region Not Use -->
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.City)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Region)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PostalCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Country)
+                            </th>*@
+                            <!-- #endregion -->
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fax)
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="hiddenCustomerID" />
+
+<!--#region Pop-Up ModalTemplate -->
+@*<div id="deleteModal" title="Confirmation" hidden="hidden" class="modal fade">
+    <div class="modal-dialog">
+        <div class="model-content">
+
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h3 class="modal-title">Delete Customer</h3>
+            </div>
+
+            <div class="modal-body">
+
+                <p>Are you sure you want to delete this ??</p>
+
+                <div style="text-align: center; display: none" id="divLoader">
+                    <img src="../../Content/img/spinner-mini.gif" width="30" />
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-danger" onclick="deleteCostumer()">Delete</a>
+            </div>
+
+        </div>
+    </div>
+</div>*@
+<!-- #endregion --> 
+
+@section Scripts{
+    <script src="~/Scripts/Customers/IndexCustomers.js"></script>
+}
+
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+
+    td {
+        border: dotted 1px;
+    }
+</style>
+@Styles.Render("~/Content/dataTables")

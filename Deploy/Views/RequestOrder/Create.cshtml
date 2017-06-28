@@ -1,0 +1,203 @@
+﻿@model Gapura.BLL.ViewModel.RequestHDVM
+
+@{
+    ViewBag.Title = "Create Request Item";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-pencil"></i><span class="break"></span>Create Request Item</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            <div class="master">
+                @using (Html.BeginForm("Create", "RequestOrder", FormMethod.Post, new
+        {
+            @class = "form-horizontal",
+            id = "myForm"
+        }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <table class="table table-condensed">
+                        <tr>@Html.HiddenFor(m=>Model.vmRequestHeader)
+                            <td>Request No</td>
+                            <td>
+                                @Html.TextBox("RequestNo", @ViewData["RequestNo"], String.Empty, new { @id = "RequestNo", @disabled = "", @class = "span8 typeahead" })
+                            </td>
+                            <td>Request Date</td>
+                            <td>
+                                @Html.TextBox("RequestDate", @ViewData["RequestDate"], new { @id = "RequestDate", @disabled = "", @class = "span8 typeahead" })
+                            </td>
+                            <td>Required Date</td>
+                            <td>
+                                @Html.TextBox("RequiredDate", @ViewData["RequiredDate"], new { @id = "RequiredDate", @class = "span6 typeahead", @type = "date" })
+                                @Html.ValidationMessageFor(m => m.vmRequestHeader.RequiredDate)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Reff. No</td>
+                            <td>
+                                @Html.TextBox("ReffNo", String.Empty, new { @id = "ReffNo", @class = "span8 typeahead" })
+                                @Html.ValidationMessageFor(m => m.vmRequestHeader.ReffNo)
+                            </td>
+                            <td>Request Type</td>
+                            <td>
+                                @Html.DropDownList("RequestTypeID", null, "- Select -", new { @class = "span5 typehead" })
+                                @Html.ValidationMessageFor(m => m.vmRequestHeader.RequestTypeID)
+                            </td>
+                            <td>Assets Type</td>
+                            <td>
+                                @Html.DropDownList("AssetsTypeID", null, "- Select -", new { @class = "span5 typehead" })
+                                @Html.ValidationMessageFor(m => m.vmRequestHeader.AssetsTypeID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Requester</td>
+                            <td>
+                                @Html.Hidden("EmployeeID")
+                                @Html.TextBox("sEmployeeID", String.Empty, new { @id = "sEmployeeID", @class = "span8 typeahead" })
+                                @Html.ValidationMessageFor(m => m.vmRequestHeader.EmployeeID)
+                            </td>
+                            <td>Manager</td>
+                            <td>
+                                @Html.Hidden("MgrID")
+                                @Html.TextBox("sMgrID", String.Empty, new { @id = "sMgrID", @class = "span8 typeahead" })
+                                @Html.ValidationMessageFor(m => m.vmRequestHeader.MgrID)
+                            </td>
+                            <td>Departemen</td>
+                            <td>
+                                @Html.DropDownList("DepartemenID", null, "- Select -", new { @class = "span9 typehead" })
+                                @Html.ValidationMessageFor(m => m.vmRequestHeader.DepartemenID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Currency</td>
+                            <td>
+                                @Html.DropDownList("CurrencyID", null, "- Select -", new { @class = "span6 typehead" })
+                                @Html.ValidationMessageFor(m => m.vmRequestHeader.CurrencyID)
+                            </td>
+                            <td>Remarks</td>
+                            <td colspan="7">
+                                @Html.TextArea("Remarks", String.Empty, new { @id = "Remarks", @rows = "2", @class = "span4 typeahead" })
+                                @Html.ValidationMessageFor(m => m.vmRequestHeader.Remarks)
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+            <div class="details">
+
+                <table class="table table-responsive">
+                    <tr>
+                        <td>
+                            <h3><u>List of Requested Items</u></h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Item Name</td>
+                        <td>Unit Price</td>
+                        <td>Unit Name</td>
+                        <td>Quantity</td>
+                        <td>Amount</td>
+                        <td>Remark</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr class="mycontainer" id="mainrow">
+                        <td>
+                            @Html.HiddenFor(m => m.vmRequestDetail.ProductID, new { @id = "itemname", @class = "itemname form-control" })
+                            @Html.TextBox("ProductID", String.Empty, new { @id = "sitemname", @class = "sitemname form-control", @style = "width: 200px;" })
+                            @Html.ValidationMessageFor(m => m.vmRequestDetail.ProductID)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.vmRequestDetail.UnitPrice, new { @id = "unitprice", @class = "unitprice form-control", @style = "width: 100px;", @type = "number", @onblur = "totAmount()" })
+                            @Html.ValidationMessageFor(m => m.vmRequestDetail.UnitPrice)
+                        </td>
+                        <td>
+                            <select id="unitname" class="unitname form-control"
+                                style="width: 90px;">
+                                <option>Select</option>
+                            </select>
+                            @Html.ValidationMessageFor(m => m.vmRequestDetail.UnitID)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.vmRequestDetail.UnitPrice, new { @id = "quantity", @class = "quantity form-control", @style = "width: 50px;", @type = "number", @onblur = "totAmount()" })
+                            @Html.ValidationMessageFor(m => m.vmRequestDetail.Quantity)
+                        </td>
+                        <td>
+                            <input type="text" id="amount" class="amount form-control" style="width: 120px;"
+                                readonly="true" />
+                            @Html.ValidationMessageFor(m => m.vmRequestDetail.Amount)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(m => m.vmRequestDetail.Remarks, new { @id = "remark", @class = "remark form-control", @style = "width: 80%;" })
+                            @Html.ValidationMessageFor(m => m.vmRequestDetail.Remarks)
+                        </td>
+                        <td>
+                            <input type="button" id="add" value="add" style="width: 80px" class="btn btn-info" />
+                        </td>
+                    </tr>
+                </table>
+                <div id="orderItems">
+                    <table class="table table-responsive"
+                        id="orderdetailsItems">
+                    </table>
+                    <span id="orderItemError" style="color: red"></span>
+                </div>
+
+            </div>
+
+            <div style="padding: 10px 0; text-align: right">
+                <table class="table table-responsive">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>Total Request</td>
+                        <td>
+                            @Html.TextBox("TotalRequest", String.Empty, new { @id = "TotalRequest", @disabled = "" /*,@onblur = "totRequest();"*/ })
+                            @Html.ValidationMessageFor(m => m.vmRequestHeader.TotalRequest)
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>Total Price</td>
+                        <td>
+                            @Html.TextBox("TotalPrice", String.Empty, new { @id = "TotalPrice", @disabled = "" /*,@onblur = "totPrice();"*/ })
+                            @Html.ValidationMessageFor(m => m.vmRequestHeader.TotalPrice)
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input id="submit" type="button" value="Save Request" class="btn btn-success" style="width: 120px" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Request/CreateOrder.js"></script>
+}
+
+<style>
+    span.error {
+        display: block;
+        visibility: hidden;
+        color: red;
+        font-size: 80%;
+    }
+
+    tr.error {
+        background-color: rgba(255,0,0,0.35);
+    }
+</style>

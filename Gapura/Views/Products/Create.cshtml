@@ -1,0 +1,156 @@
+﻿@model Gapura.BLL.Models.Product
+
+@{
+    ViewBag.Title = "Create Item Product";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-pencil"></i><span class="break"></span>Create Items Product</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Create", "Products", FormMethod.Post, new
+        {
+            enctype = "multipart/form-data",
+            @class = "form-horizontal"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <div class="container">
+                    <div class="box span3">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>
+                                    <img src="~/UploadFiles/Item/yusenitem.jpg" 
+                                        alt="Please select Photo to Attach" width="250" height="450" />
+                                    @Html.ValidationMessageFor(m => m.PhotoPath)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="file" id="FileUpload" name="fileUpload" multiple />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" id="Upload" value="Upload Photo" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="box span8" style="margin-left: 10px">
+                        <div class="box-header">
+                            <h4><i class="halflings-icon briefcase"></i><span class="break"></span><b>Item Detail</b></h4>
+                            <div class="box-icon">
+                            </div>
+                        </div>
+                        <fieldset>
+                            <legend></legend>
+                            @Html.HiddenFor(m => m.ProductID)
+
+                            <div class="control-group">
+                                @*@Html.Label("ProductCode", "Item Code", new { @class = "control-label" })*@
+                                @Html.LabelFor(m => m.ProductCode, new { @class = "control-label" })
+                                @Html.EditorFor(m => m.ProductCode)
+                                @Html.ValidationMessageFor(m => m.ProductCode)
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(m => m.CategoryID, new { @class = "control-label" })
+                                @Html.DropDownList("CategoryID", String.Empty)
+                                @Html.ValidationMessageFor(m => m.CategoryID)
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(m => m.ProductName, new { @class = "control-label" })
+                                @Html.TextBox("ProductName", @ViewData["ProductName"], new { @class = "span7 typeahead" })
+                                @Html.ValidationMessageFor(m => m.ProductName)
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(m => m.SupplierID, new { @class = "control-label" })
+                                @Html.DropDownList("SupplierID", String.Empty)
+                                @Html.ValidationMessageFor(m => m.SupplierID)
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(m => m.QuantityPerUnit, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.QuantityPerUnit, new { @type = "number", @min = "1"})
+                                @Html.ValidationMessageFor(m => m.QuantityPerUnit)
+                            </div>
+
+                            <div class="control-group">
+                                <div class="input-prepend input-append">
+                                    @Html.LabelFor(m => m.UnitPrice, new { @class = "control-label" })
+                                    <span class="add-on">Rp</span>
+                                        @*@Html.TextBoxFor(m => m.UnitPrice, new { @type = "number", @min = "1"})*@
+                                        @Html.EditorFor(m => m.UnitPrice, new { @id = "UnitPrice" })
+                                    <span class="add-on">.00</span>
+                                    @Html.ValidationMessageFor(m => m.UnitPrice)
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(m => m.UnitID, new { @class = "control-label" })
+                                @Html.DropDownList("UnitID", String.Empty)
+                                @Html.ValidationMessageFor(m => m.UnitID)
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(m => m.Specs, new { @class = "control-label" })
+                                @*@Html.TextArea("Specs", Model.Specs, new { @rows = "5", @class = "span6 typeahead" })*@
+                                @Html.TextAreaFor(m => m.Specs)
+                                @Html.ValidationMessageFor(m => m.Specs)
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(m => m.ReorderLevel, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.ReorderLevel, new { @type = "number", @min = "1"})
+                                @Html.ValidationMessageFor(m => m.ReorderLevel)
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(m => m.Discontinued, new { @class = "control-label" })
+                                @Html.EditorFor(m => m.Discontinued)
+                                @Html.ValidationMessageFor(m => m.Discontinued)
+                            </div>
+
+                            <div class="control-group">
+                                @Html.LabelFor(m => m.FirstInputDate, new { @class = "control-label" })
+                                @Html.TextBox("FirstInputDate", @ViewData["FirstInputDate"], new { @readonly = "readonly" })
+                                @Html.ValidationMessageFor(m => m.FirstInputDate)
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                    <input type="reset" value="Reset" class="btn" />
+                    <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                    <a href="@Url.Action("Delete", new { id = @Html.DisplayFor(m => m.ProductID) })" class="btn btn-danger">Delete</a>
+                </div>                    
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script src="~/Scripts/jquery.formatCurrency-1.4.0.js"></script>
+<script src="~/Scripts/TextBoxLimit.js"></script>
+<script src="~/Scripts/Products/CreateProducts.js"></script>

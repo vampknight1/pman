@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Home" controller="Home" action="Index">
+    <mvcSiteMapNode title="Dashboard" controller="Home" action="Index"/>
+    <mvcSiteMapNode title="About" controller="Home" action="About"/>
+
+    <mvcSiteMapNode title="RBAC Authentication" clickable="false">
+      <mvcSiteMapNode title="Manage Role" controller="Account" action="RoleIndex"/>
+      <mvcSiteMapNode title="Manage Role > Create New Role" controller="Account" action="RoleCreate"/>
+      <mvcSiteMapNode title="Manage Role > Add Role to User" controller="Account" action="RoleAddToUser"/>
+      <mvcSiteMapNode title="Manage Role > Add Role to User" controller="Account" action="GetRoles"/>
+      <mvcSiteMapNode title="Manage Role > Delete Role from User" controller="Account" action="RoleDeleteForUser"/>
+      
+      <mvcSiteMapNode title="Add User" controller="Account" action="Register"/>
+      <mvcSiteMapNode title="Manage User" controller="Account" action="Manage"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="HR Area" clickable="false">
+      <mvcSiteMapNode title="Master Division" controller="Division" action="Index"/>
+      <mvcSiteMapNode title="Master Division" controller="Division" action="Create"/>
+      <mvcSiteMapNode title="Master Division" controller="Division" action="Edit"/>
+      
+      <mvcSiteMapNode title="Master Departement" controller="Departement" action="Index"/>
+      <mvcSiteMapNode title="Master Departement" controller="Departement" action="Create"/>
+      <mvcSiteMapNode title="Master Departement" controller="Departement" action="Edit"/>
+      
+      <mvcSiteMapNode title="Master Title" controller="MasterTitle" action="Index"/>
+      <mvcSiteMapNode title="Master Title" controller="MasterTitle" action="Create"/>
+      <mvcSiteMapNode title="Master Title" controller="MasterTitle" action="Edit"/>
+      
+      <mvcSiteMapNode title="Employee" controller="Employee" action="Index"/>
+        <mvcSiteMapNode title="Employee" controller="Employee" action="Create"/>
+        <mvcSiteMapNode title="Employee" controller="Employee" action="Edit"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Setup Apps" clickable="false">
+      <mvcSiteMapNode title="Transaction Types" controller="TransTypes" action="Index"/>
+      <mvcSiteMapNode title="Assets Types" controller="AssetsTypes" action="Index"/>
+      <mvcSiteMapNode title="Term of Payment" controller="TermOfPays" action="Index"/>
+      <mvcSiteMapNode title="Type of Request" controller="RequestTypes" action="Index"/>
+      <mvcSiteMapNode title="Master Currency" controller="Currencies" action="Index"/>
+      
+      <mvcSiteMapNode title="Units" controller="Units" action="Index"/>
+        <mvcSiteMapNode title="Units" controller="Units" action="Create"/>
+        <mvcSiteMapNode title="Units" controller="Units" action="Edit"/>
+      
+      <mvcSiteMapNode title="Periods" controller="Periods" action="Index"/>
+        <mvcSiteMapNode title="Periods" controller="Periods" action="Create"/>
+        <mvcSiteMapNode title="Periods" controller="Periods" action="Edit"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Master Data" clickable="false">
+      <mvcSiteMapNode title="Customers" controller="Customers" action="Index"/>
+        <mvcSiteMapNode title="Customers" controller="Customers" action="Create"/>
+        <mvcSiteMapNode title="Customers" controller="Customers" action="Edit"/>
+      
+      <mvcSiteMapNode title="Suppliers" controller="Suppliers" action="Index"/>
+        <mvcSiteMapNode title="Suppliers" controller="Suppliers" action="Create"/>
+        <mvcSiteMapNode title="Suppliers" controller="Suppliers" action="Edit"/>
+      
+      <mvcSiteMapNode title="Category Items" controller="Categories" action="Index"/>
+        <mvcSiteMapNode title="Category Items" controller="Categories" action="Create"/>
+        <mvcSiteMapNode title="Category Items" controller="Categories" action="Edit"/>
+      
+      <mvcSiteMapNode title="Items" controller="Products" action="Index"/>
+        <mvcSiteMapNode title="Items" controller="Products" action="Create"/>
+        <mvcSiteMapNode title="Items" controller="Products" action="Edit"/>
+      
+      <mvcSiteMapNode title="Office Location" controller="MasterOffice" action="Index"/>
+        <mvcSiteMapNode title="Office Location" controller="MasterOffice" action="Create"/>
+        <mvcSiteMapNode title="Office Location" controller="MasterOffice" action="Edit"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Transaction" clickable="false">
+      <mvcSiteMapNode title="Inventory Items" controller="ProductsInventory" action="Index"/>
+      <mvcSiteMapNode title="PO" controller="POHeader" action="Index"/>
+        <mvcSiteMapNode title="PO" controller="POHeader" action="Create"/>
+        <mvcSiteMapNode title="PO" controller="POHeader" action="Edit"/>
+      
+      <mvcSiteMapNode title="Receive Supplier" controller="ReceiveHeader" action="Index"/>
+        <mvcSiteMapNode title="Receive Supplier" controller="ReceiveHeader" action="Create"/>
+        <mvcSiteMapNode title="Receive Supplier" controller="ReceiveHeader" action="Edit"/>
+      
+      <mvcSiteMapNode title="Release Item" controller="ReleaseHeader" action="Index"/>
+        <mvcSiteMapNode title="Release Item" controller="ReleaseHeader" action="Create"/>
+        <mvcSiteMapNode title="Release Item" controller="ReleaseHeader" action="Edit"/>
+      
+      <mvcSiteMapNode title="Request Item" controller="RequestHeader" action="Index"/>
+        <mvcSiteMapNode title="Request Item" controller="RequestHeader" action="Create"/>
+        <mvcSiteMapNode title="Request Item" controller="RequestHeader" action="Edit"/>
+    </mvcSiteMapNode>
+
+  </mvcSiteMapNode>
+
+</mvcSiteMap>

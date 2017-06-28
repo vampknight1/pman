@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title - GAPURA</title>
+    <!-- start: CSS -->
+    @Styles.Render("~/Content/main")
+    <!-- end: CSS -->
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <div class="container-fluid-full">
+        <div class="row-fluid">
+            <!-- start: Content Container -->
+            @RenderBody()
+            <!-- end: Content Container -->
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <!-- start: JavaScript-->
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/min")
+    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/dataTablesLayout")
+    @Scripts.Render("~/bundles/knockout")
+
+    @RenderSection("Scripts", false)
+    <!-- end: JavaScript-->
+</body>
+</html>

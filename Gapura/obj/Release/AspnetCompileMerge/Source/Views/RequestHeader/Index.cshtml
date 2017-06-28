@@ -1,0 +1,151 @@
+﻿@model IEnumerable<Gapura.Models.RequestHeader>
+
+@{
+    ViewBag.Title = "List of Request Items";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-table"></i><span
+                class="break"></span>List of Request Item</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Create", "RequestHeader")">
+                    <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                    Add New Request
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            <div style="width: inherit; margin-left: 30px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DepartemenID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequiredDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TotalRequest)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ReffNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestTypeID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmployeeID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MgrID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GAMgrID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GMID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TotalPrice)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CurrencyID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AssetsTypeID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Remarks)
+                            </th>
+                            <th>-
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            @* Load datatable js *@
+            @section Scripts{
+                @Scripts.Render("~/bundles/dataTables")
+                <script src="~/Scripts/dataTables/dataTables.fixedHeader.min.js"></script>
+                @*<script src="~/Scripts/dataTables/dataTables.responsive.min.js"></script>*@
+
+                <script>
+                    $(document).ready(function () {
+                        $('#myTable').DataTable({
+                            "ajax": {
+                                "url": "/RequestHeader/LoadData",
+                                "type": "GET",
+                                "datatype": "json",
+                            },
+                            "columns": [
+                                { "data": "RequestNo", "width": "10%" },
+                                { "data": "DepartemenName", "width": "5%" },
+                                { "data": "RequestDate", "width": "11%" },
+                                { "data": "RequiredDate", "width": "10%" },
+                                { "data": "TotalRequest", "width": "5%", "render": $.fn.dataTable.render.number(',', '.', 0, '') },
+                                { "data": "ReffNo", "width": "5%" },
+                                { "data": "RequestType", "width": "5%" },
+                                { "data": "Requester", "width": "7%" },
+                                { "data": "Manager", "width": "7%" },
+                                { "data": "GAMgr", "width": "7%" },
+                                { "data": "GM", "width": "7%" },
+                                { "data": "TotalPrice", "width": "5%", "render": $.fn.dataTable.render.number(',', '.', 0, '') },
+                                { "data": "CurrencyCode", "width": "2%" },
+                                { "data": "AssetsType", "width": "5%" },
+                                { "data": "Remarks", "width": "5%" },
+                            {
+                                //"data": null,
+                                //"className": "center",
+                                "data": "RequestID", "width": "4%", "render": function (data) {
+                                    return '<a class="btn btn-info" href="/RequestHeader/Edit/' + data + '"><i class="halflings-icon white edit"></i></a>' +
+                                            '<a class="btn btn-danger" href="/RequestHeader/Delete/' + data + '"><i class="halflings-icon white trash"></i></a>' +
+                                            '<a class="btn btn-success" href="/RequestDetail/Index/' + data + '"><i class="halflings-icon white zoom-in"></i></a>'
+                                }
+                            }
+                            ],
+                            "pagingType": "full_numbers",
+                            "info": true,
+                            "scrollCollapse": true,
+                            "sScrollX": true,
+                            "sScrollY": "55vh",
+                            "sScrollCollapse": true,
+                            "bSort": true,
+                            "select": {
+                                "style": "os",
+                                "selector": "td:first-child"
+                            },
+                            "buttons": [
+                                { "extend": "create", "editor": "editor" },
+                                { "extend": "edit", "editor": "editor" },
+                                { "extend": "remove", "editor": "editor" }
+                            ]
+                        });
+                    });
+                </script>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+    td {
+        border: dotted 1px;
+    }
+</style>
+
+@Styles.Render("~/Content/dataTables")
+<link href="~/Content/dataTables/jquery.dataTables.min.css" rel="stylesheet" />

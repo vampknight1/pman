@@ -1,0 +1,164 @@
+﻿@model Gapura.Models.POHeader
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>POHeader</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.POID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.POID)
+            @Html.ValidationMessageFor(model => model.POID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequestID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequestID)
+            @Html.ValidationMessageFor(model => model.RequestID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PONo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PONo)
+            @Html.ValidationMessageFor(model => model.PONo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DepartemenID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DepartemenID)
+            @Html.ValidationMessageFor(model => model.DepartemenID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequestDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequestDate)
+            @Html.ValidationMessageFor(model => model.RequestDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequiredDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequiredDate)
+            @Html.ValidationMessageFor(model => model.RequiredDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TotalRequest)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TotalRequest)
+            @Html.ValidationMessageFor(model => model.TotalRequest)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReffNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReffNo)
+            @Html.ValidationMessageFor(model => model.ReffNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequestTypeID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequestTypeID)
+            @Html.ValidationMessageFor(model => model.RequestTypeID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmployeeID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmployeeID)
+            @Html.ValidationMessageFor(model => model.EmployeeID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MgrID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MgrID)
+            @Html.ValidationMessageFor(model => model.MgrID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GAMgrID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GAMgrID)
+            @Html.ValidationMessageFor(model => model.GAMgrID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GMID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GMID)
+            @Html.ValidationMessageFor(model => model.GMID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TotalPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TotalPrice)
+            @Html.ValidationMessageFor(model => model.TotalPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CurrencyID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CurrencyID)
+            @Html.ValidationMessageFor(model => model.CurrencyID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AssetsTypeID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AssetsTypeID)
+            @Html.ValidationMessageFor(model => model.AssetsTypeID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Remarks)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Remarks)
+            @Html.ValidationMessageFor(model => model.Remarks)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

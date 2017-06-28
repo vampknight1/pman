@@ -1,0 +1,73 @@
+﻿@model Gapura.Models.MasterTransType
+
+@{
+    ViewBag.Title = "Edit Transaction Type";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-edit"></i><span
+                class="break"></span>Edit Transaction Type</h2>
+            <div class="box-icon">
+                @*<a href="~/Products/Index" class="btn-setting"><i class="halflings-icon wrench"></i></a>*@
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Edit", "TransTypes", FormMethod.Post, new
+        {
+            @class = "form-horizontal"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend></legend>
+
+                    @Html.HiddenFor(model => model.id)
+
+                    <div class="editor-label">
+                        @Html.Label("TransCode", "Trans Code", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.TransCode)
+                        @Html.ValidationMessageFor(model => model.TransCode)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("TransName", "Trans Name", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.TransName)
+                        @Html.ValidationMessageFor(model => model.TransName)
+                    </div>
+
+                    <div class="form-actions">
+                        <a class="btn btn-success" href="#" onclick="$('form').submit();">Save</a>
+                        <input type="reset" value="Reset" class="btn" />
+                        <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                        <a href="@Url.Action("Delete", new { id = @Html.DisplayFor(model => model.id) })" class="btn btn-danger">Delete</a>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<style>
+    div.editor-label {
+        margin-bottom: 14px !important;
+    }
+</style>

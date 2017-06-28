@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Gapura.BLL.Models.POHeader>
+
+@{
+    ViewBag.Title = "List of PO";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-table"></i><span class="break"></span>List of PO</h2>
+            <div class="box-icon">
+                @*<a href="@Url.Action("Create", "POHeader")">
+                    <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                    Add PO
+                </a>*@
+            </div>
+        </div>
+        <div class="box-content">
+            <div style="width: inherit; margin-left: 30px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>-</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PONo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PODate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model=>model.RequestID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DepartemenID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequiredDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TotalRequest)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ReffNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestTypeID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmployeeID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MgrID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GAMgrID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GMID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TotalPrice)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CurrencyID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AssetsTypeID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Remarks)
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/PO/IndexPO.js"></script>
+
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+
+    td {
+        border: dotted 1px;
+    }
+</style>
+@Styles.Render("~/Content/dataTables")

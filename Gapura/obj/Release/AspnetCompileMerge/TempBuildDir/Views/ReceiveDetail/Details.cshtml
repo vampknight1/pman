@@ -1,0 +1,50 @@
+﻿@model Gapura.Models.ReceiveDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ReceiveDetail</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReceiveID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReceiveID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StockBegin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StockBegin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QtyReceive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QtyReceive)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StockFinal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StockFinal)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ReceiveDetailID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

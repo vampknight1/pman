@@ -1,0 +1,127 @@
+﻿@model Gapura.Models.RequestHeader
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>RequestHeader</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequestID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequestNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DepartemenID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DepartemenID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequestDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequiredDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequiredDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalRequest)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalRequest)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReffNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReffNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequestTypeID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestTypeID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EmployeeID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmployeeID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MgrID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MgrID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GAMgrID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GAMgrID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GMID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GMID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalPrice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CurrencyID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CurrencyID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AssetsTypeID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AssetsTypeID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Remarks)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Remarks)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

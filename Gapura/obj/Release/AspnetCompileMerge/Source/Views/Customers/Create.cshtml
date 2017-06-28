@@ -1,0 +1,137 @@
+﻿@model Gapura.Models.Customer
+
+@{
+    ViewBag.Title = "Create Customer";
+}
+
+<style>
+    div.editor-label {
+        margin-bottom: 14px !important;
+        /*padding-left: 6px;*/
+    }
+</style>
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-pencil"></i><span
+                class="break"></span>Create Departemen</h2>
+            <div class="box-icon">
+                @*<a href="~/Products/Index" class="btn-setting"><i class="halflings-icon wrench"></i></a>*@
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close" 
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>@*Back to Dashboard*@
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Create", "Customers", FormMethod.Post, new
+        {
+            @class = "form-horizontal"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend></legend>
+
+                    <div class="editor-label">
+                        @Html.Label("DepartemenID", "Departemen Code", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.DepartemenID)
+                        @Html.ValidationMessageFor(model => model.DepartemenID)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("CompanyName", "Departemen", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.CompanyName)
+                        @Html.ValidationMessageFor(model => model.CompanyName)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("ContactName", "Contact Name", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.ContactName)
+                        @Html.ValidationMessageFor(model => model.ContactName)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("ContactTitle", "Contact Title", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.ContactTitle)
+                        @Html.ValidationMessageFor(model => model.ContactTitle)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("Address", "Address", new { @class = "control-label" })
+
+                        @*@Html.EditorFor(model => model.Address)*@
+                        @Html.TextAreaFor(model => model.Address)
+                        @Html.ValidationMessageFor(model => model.Address)
+                    </div>
+
+                    @*                    <div class="editor-label">
+                        @Html.Label("City", "City", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.City)
+                        @Html.ValidationMessageFor(model => model.City)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("Region", "Region", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.Region)
+                        @Html.ValidationMessageFor(model => model.Region)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("PostaalCode", "Postal Code", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.PostalCode)
+                        @Html.ValidationMessageFor(model => model.PostalCode)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("Country", "Country", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.Country)
+                        @Html.ValidationMessageFor(model => model.Country)
+                    </div>*@
+
+                    <div class="editor-label">
+                        @Html.Label("Phone", "Phone", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.Phone)
+                        @Html.ValidationMessageFor(model => model.Phone)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.Label("Fax", "Fax", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.Fax)
+                        @Html.ValidationMessageFor(model => model.Fax)
+                    </div>
+
+                    @*<input type="submit" value="Save" />
+                        <input type="reset" value="Cancel" />*@
+                    <div class="form-actions">
+                        <a class="btn btn-success" href="#" onclick="$('form').submit();">Save</a>
+                        <input type="reset" value="Reset" class="btn" />
+                        <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                    </div>
+                </fieldset>
+            }
+
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

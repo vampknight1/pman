@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Gapura.Models.ReceiveHeader>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceiveID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceiveNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceiveDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceiptReff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalReceive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiveID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiveNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiveDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiptReff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalReceive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

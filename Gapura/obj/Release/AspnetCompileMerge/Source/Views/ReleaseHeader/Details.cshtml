@@ -1,0 +1,78 @@
+﻿@model Gapura.Models.ReleaseHeader
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ReleaseHeader</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReleaseID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReleaseID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequestID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReleaseNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReleaseNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReleaseDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReleaseDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DepartemenID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DepartemenID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalRequest)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalRequest)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalRelease)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalRelease)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReleaseNote)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReleaseNote)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserID)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Gapura.Models.ReleaseDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockBegin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtyRequest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtyRelease)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockFinal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockBegin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtyRequest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtyRelease)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReleaseDetailID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReleaseDetailID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReleaseDetailID })
+        </td>
+    </tr>
+}
+
+</table>

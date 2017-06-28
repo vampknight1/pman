@@ -1,0 +1,329 @@
+﻿@*@model Gapura.Models.RequestHeader*@
+
+@{
+    ViewBag.Title = "Create Request Item";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-pencil"></i><span
+                class="break"></span>Create Request Item</h2>
+            <div class="box-icon">
+                @*<a href="~/Products/Index" class="btn-setting"><i class="halflings-icon wrench"></i></a>*@
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            @*<div class="container">*@
+            <div class="master">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <table class="table table-condensed">
+                    <tr>
+                        <td>Request No</td>
+                        <td>
+                            @*<input type="text" id="orderNo" />
+                        <span class="error">Order no required</span>*@
+                            @*@Html.EditorFor(model => model.RequestNo)*@
+                            @*@Html.ValidationMessageFor(model => model.RequestNo)*@
+                            @Html.TextBox("RequestNo", @ViewData["RequestNo"], String.Empty, new { @id="RequestNo" ,@disabled="" ,@class = "span8 typeahead" })
+                            <span class="error">Request No, required !</span>
+                        </td>
+                        <td>Request Date</td>
+                        <td>
+                            @*<input type="text" id="orderDate" />
+                        <span class="error">Valid order date required (ex. yyyy-MM-dd)</span>*@
+                            @Html.TextBox("RequestDate", @ViewData["RequestDate"], new { @id="RequestDate" ,@disabled="" ,@class = "span8 typeahead" })
+                            <span class="error">Valid Request Date, required (ex. yyyy-MM-dd)</span>
+                            @*@Html.ValidationMessageFor(model => model.RequestDate)*@
+                        </td>
+                        <td>Required Date</td>
+                        <td>
+                            @Html.TextBox("RequiredDate", @ViewData["RequiredDate"], new { @id="RequiredDate" ,@class = "span6 typeahead" })
+                            <span class="error">Valid Required Date, required !(ex. yyyy-MM-dd)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Reff. No</td>
+                        <td>
+                            @Html.TextBox("ReffNo", String.Empty, new { @id="ReffNo" ,@class = "span8 typeahead" })
+                            <span class="error">Reff. No, required !</span>
+                            @*@Html.ValidationMessage("ReffNo", "", new {style="color:red;" })*@
+                        </td>
+                        <td>Request Type</td>
+                        <td>
+                            @Html.DropDownList("RequestTypeID", "- Select -")
+                            <span class="error">Request Type, required !</span>
+                            @*@Html.ValidationMessage("RequestTypeID", "", new {style="color:red;" })*@
+                        </td>
+                        <td>Assets Type</td>
+                        <td>
+                            @Html.DropDownList("AssetsTypeID", "- Select -")
+                            <span class="error">Asset Type, required !</span>
+                            @*@Html.ValidationMessage("AssetsTypeID", "", new {style="color:red;" })*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Requester</td>
+                        <td>
+                            @*@Html.DropDownList("EmployeeID", "- Select -")*@
+                            @Html.Hidden("EmployeeID")
+                            @Html.TextBox("sEmployeeID", String.Empty, new { @id="sEmployeeID"  ,@class = "span8 typeahead" })
+                            <span class="error">Requester Name, required !</span>
+                        </td>
+                        <td>Manager</td>
+                        <td>
+                            @*@Html.DropDownList("MgrID", "- Select -")*@
+                            @Html.Hidden("MgrID")
+                            @Html.TextBox("sMgrID", String.Empty, new { @id="sMgrID"  ,@class = "span8 typeahead" })
+                            <span class="error">Manager Name, required !</span>
+                        </td>
+                        <td>Departemen</td>
+                        <td>
+                            @Html.DropDownList("DepartemenID", "- Select -")
+                            <span class="error">Departemen, required !</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Currency</td>
+                        <td>
+                            @Html.DropDownList("CurrencyID", "- Select Currency -")
+                            <span class="error">Currency, required !</span>
+                        </td>
+                        <td>Remarks</td>
+                        <td colspan="7">
+                            @*<textarea id="Remarks" style="width:100%"></textarea>*@
+                            @*@Html.EditorFor(model => model.Remarks)*@
+                            @Html.TextArea("Remarks", String.Empty, new { @id="Remarks"  ,@rows = "2", @class = "span4 typeahead" })
+                            <span class="error">Remarks, required !</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="details">
+                <table class="table table-responsive">
+                    <tr>
+                        <td>
+                            <h3><u>List of Requested Items</u></h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Item Name</td>
+                        <td>Unit Price</td>
+                        <td>Unit Name</td>
+                        <td>Quantity</td>
+                        <td>Amount</td>
+                        <td>Remark</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr class="mycontainer" id="mainrow">
+                        <td>
+                            @*@Html.DropDownList("ProductID", String.Empty)*@
+                            @*@Html.TextBox("ProductID", String.Empty, new {style = "width: 90%;"})*@
+                            @*onchange="LoadProduct(this)"*@
+                            @*<select id="itemname" class="itemname form-control" 
+                                style="width: 150px;">
+                                <option>Select</option>
+                            </select>*@
+                            <input type="hidden" id="itemname" class="itemname form-control" />
+                            <input type="text" id="sitemname" class="sitemname form-control" style="width: 150px;" />
+                            <span class="error">Select Item Name !</span>
+                        </td>
+                        <td>
+                            @*@Html.TextBox("UnitPrice", String.Empty, new {style = "width: 50%;"})*@
+                            <input type="text" id="unitprice" class="unitprice form-control" onblur="totAmount()" 
+                                style="width: 90px;"/>
+                            <span class="error">Unit Price, required !</span>
+                        </td>
+                        <td>
+                            @*@Html.DropDownList("UnitID", String.Empty)*@
+                            @*@Html.TextBox("UnitID", String.Empty, new {style = "width: 30%;"})*@
+                            <select id="unitname" class="unitname form-control" 
+                                @*onchange="LoadUnit(this)" *@
+                                style="width: 90px;">
+                                <option>Select</option>
+                            </select>
+                            <span class="error">Select Unit Name !</span>
+                        </td>
+                        <td>
+                            @*@Html.TextBox("Quantity", String.Empty, new {style = "width: 30%;"})*@
+                            <input type="text" id="quantity" class="quantity form-control" onblur="totAmount()" 
+                                style="width: 60px;"/>
+                            <span class="error">Quantity, required !</span>
+                        </td>
+                        <td>
+                            @*@Html.TextBox("Amount", String.Empty, new {style = "width: 40%;"})*@
+                            @*<input type="hidden" class="amount" />*@
+                            <input type="text" id="amount" class="amount form-control" style="width: 120px;" 
+                                readOnly="true"/>
+                            <span class="error">Amount, required !</span>
+                        </td>
+                        <td>
+                            @*@Html.TextBox("Remark", String.Empty, new {style = "size: 100%;"})*@
+                            @*<textarea id="remark"class="Remark form-control" style="width: 150px;"/>*@
+                            <input type="text" id="remark" class="remark form-control" style="width: 150px;" />
+                            <span class="error">Remark, required !</span>
+                        </td>
+                        <td>
+                            <input type="button" id="add" value="add" style="width: 80px" class="btn btn-success" />
+                        </td>
+                    </tr>
+                </table>
+                <div id="orderItems">
+                    @*<table class="compact stripe hover order-column responsive"*@
+                    <table class="table table-responsive"
+                            id="orderdetailsItems">
+                    </table>
+                    <span id="orderItemError" style="color: red"></span>
+                </div>
+                <div style="padding: 10px 0; text-align: right">
+                    <table class="table table-responsive">
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Total Request</td>
+                            <td>
+                                @Html.TextBox("TotalRequest", String.Empty, new { @id="TotalRequest" ,@disabled="" /*,@onblur = "totRequest();"*/ })
+                                @*<span class="error">Total Price, required !</span>*@
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>Total Price</td>
+                            <td>
+                                @Html.TextBox("TotalPrice", String.Empty, new { @id="TotalPrice" ,@disabled="" /*,@onblur = "totPrice();"*/ })
+                                @*<span class="error">Total Price, required !</span>*@
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input id="submit" type="button" value="Save Request" class="btn btn-warning" style="padding: 10px 20px" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+<script src="~/Scripts/MD/RequestMD.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#RequiredDate').focus();
+        $('#RequiredDate').datepicker({
+            appendText: ' YYYY-MM-DD',
+            dateFormat: 'yy-mm-dd',
+            minDate: 0,
+            changeMonth: true,
+            changeYear: true
+            //showOn: 'both'        //for button
+        });
+
+        $('#sitemname').autocomplete({
+            source: '@Url.Action("getProduct", "Products")',
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#sitemname").val(ui.item.label);
+                $("#itemname").val(ui.item.value);
+            },
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#sitemname").val(ui.item.label);
+            }
+        });
+        $('#sEmployeeID').autocomplete({
+            source: '@Url.Action("getRequester")',
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#sEmployeeID").val(ui.item.label);
+                $("#EmployeeID").val(ui.item.value);
+            },
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#sEmployeeID").val(ui.item.label);
+            }
+        });
+        $('#sMgrID').autocomplete({
+            source: '@Url.Action("getRequester")',
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#sMgrID").val(ui.item.label);
+                $("#MgrID").val(ui.item.value);
+            },
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#sMgrID").val(ui.item.label);
+            }
+        });
+    });
+
+    function totAmount() {
+        var varUnitPrice = document.getElementById('unitprice').value;
+        var varQuantity = document.getElementById('quantity').value;
+        document.getElementById('amount').value = parseFloat(varUnitPrice) * parseInt(varQuantity);
+    }
+
+///////// JS Function for Dynamic autoSum    /////////
+    $('.quantity').keyup(function () {
+        var result = 0;
+        $('#TotalRequest').attr('value', function () {
+            $('.quantity').each(function () {
+                if ($(this).val() !== '') {
+                    result += parseInt($(this).val());
+                }
+            });
+            return result;
+        });
+    });
+    $('.amount').keyup(function () {
+        var result = 0;
+        $('#TotalPrice').attr('value', function () {
+            $('.amount').each(function () {
+                if ($(this).val() !== '') {
+                    result += parseFloat($(this).val());
+                }
+            });
+            return result;
+        });
+    });
+/*
+    $('.amount').change(function () {
+        $('#TotalPrice').attr('value', function () {
+            var result = 0;
+            $('.amount').each(function () {
+                result += $(this).attr('value');
+            });
+            return result;
+        });
+    });
+*/
+////////// End JS Function for Dynamic autoSum  /////////
+</script>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
+
+<style>
+    /*div.editor-label {
+        /*margin-bottom: 14px !important;*/
+        /*padding-left: 6px;
+    }
+    */
+    span.error {
+        display: block;
+        visibility: hidden;
+        color: red;
+        font-size: 80%;
+    }
+
+    tr.error {
+        background-color: rgba(255,0,0,0.35);
+    }
+</style>

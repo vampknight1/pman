@@ -1,0 +1,93 @@
+﻿@model Gapura.BLL.Models.MasterOffice
+
+@{
+    ViewBag.Title = "Edit Master Office";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-edit"></i><span class="break"></span>Edit Office</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Edit", "MasterOffice", FormMethod.Post, new
+        {
+            @class = "form-horizontal"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend></legend>
+
+                    @Html.HiddenFor(model => model.OfficeID)
+
+                    <div class="control-group">
+                        @Html.Label("OfficeCode", "Office Code", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.OfficeCode)
+                        @Html.ValidationMessageFor(model => model.OfficeCode)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("OfficeName", "OfficeName", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.OfficeName)
+                        @Html.ValidationMessageFor(model => model.OfficeName)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("Address", "Address", new { @class = "control-label" })
+
+                        @Html.TextAreaFor(model => model.Address)
+                        @Html.ValidationMessageFor(model => model.Address)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("City", "City", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.City)
+                        @Html.ValidationMessageFor(model => model.City)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("Region", "Region", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.Region)
+                        @Html.ValidationMessageFor(model => model.Region)
+                    </div>
+
+                    <div class="control-group">
+                        @Html.Label("Phone", "Phone", new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.Phone)
+                        @Html.ValidationMessageFor(model => model.Phone)
+                    </div>
+
+                    <div class="form-actions">
+                        <a class="btn btn-success" href="#" onclick="$('form').submit();">Save</a>
+                        <input type="reset" value="Reset" class="btn" />
+                        <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                        <a href="@Url.Action("Delete", new { id = @Html.DisplayFor(model => model.OfficeID) })" class="btn btn-danger">Delete</a>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

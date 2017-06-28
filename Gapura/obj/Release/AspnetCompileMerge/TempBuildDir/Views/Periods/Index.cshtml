@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Gapura.Models.MasterPeriod>
+
+@{
+    ViewBag.Title = "Index of Period";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-table"></i><span
+                class="break"></span>Set Up New Period</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Create", "Periods")">
+                    <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                    Add New Period
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartPeriod)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndPeriod)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PeriodName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClosePeriod)
+                    </th>
+                    <th>Action</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartPeriod)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndPeriod)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PeriodName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClosePeriod)
+                        </td>
+                        <td>
+                            <a class="btn btn-success"
+                                href="@Url.Action("Details", new { id = item.PeriodID })">
+                                <i class="halflings-icon white zoom-in"></i>
+                            </a>
+                            <a class="btn btn-info"
+                                href="@Url.Action("Edit", new { id = item.PeriodID })">
+                                <i class="halflings-icon white edit"></i>
+                            </a>
+                            <a class="btn btn-danger"
+                                href="@Url.Action("Delete", new { id = item.PeriodID })">
+                                <i class="halflings-icon white trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+        /*padding-left: 6px;*/
+    }
+    td {
+        border: dotted 1px;
+        /*padding-left: 6px;*/
+    }
+</style>

@@ -1,0 +1,167 @@
+﻿@model IEnumerable<Gapura.Models.ProductsInventory>
+
+@{
+    ViewBag.Title = "Index Inventory Items";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-table"></i><span
+                class="break"></span>Items Inventory</h2>
+            <div class="box-icon">
+                @*<a href="@Url.Action("Create", "ProductsInventory")" class="btn btn-info">
+                    <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                    Add New Item
+                </a>*@
+            </div>
+        </div>
+        <div class="box-content">
+
+            <div style="width: inherit; margin-left: 30px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Departemen
+                            </th>
+                            <th>Item Code
+                            </th>
+                            <th>Item Name
+                            </th>
+                            <th>Unit Name
+                            </th>
+                            <th>Category
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UnitsInStock)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UnitsOnOrder)
+                            </th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            @* Load datatable js *@
+            @section Scripts{
+                <script src="~/Scripts/dataTables/dataTables.fixedHeader.min.js"></script>
+                @Scripts.Render("~/bundles/dataTables")
+
+                <script>
+                    $(document).ready(function () {
+                        //var item;
+                        $('a.editor_create').on('click', function (e) {
+                            e.preventDefault();
+
+                            editor.create({
+                                title: 'Create new record',
+                                buttons: 'Add'
+                            });
+                        });
+                        // Edit record
+                        $('#myTable').on('click', 'a.editor_edit', function (e) {
+                            e.preventDefault();
+
+                            editor.edit($(this).closest('tr'), {
+                                title: 'Edit record',
+                                buttons: 'Update'
+                            });
+                        });
+                        // Delete a record
+                        $('#myTable').on('click', 'a.editor_remove', function (e) {
+                            e.preventDefault();
+
+                            editor.remove($(this).closest('tr'), {
+                                title: 'Delete record',
+                                message: 'Are you sure you wish to remove this record?',
+                                buttons: 'Delete'
+                            });
+                        });
+
+                        $('#myTable').DataTable({
+                            "ajax": {
+                                "url": "/ProductsInventory/LoadData",
+                                "type": "GET",
+                                "datatype": "json"
+                            },
+                            "columns": [
+                                { "data": "DepartemenName", "width": "17%" },
+                                { "data": "ProductCode", "width": "13%" },
+                                { "data": "ProductName", "width": "15%" },
+                                { "data": "UnitName", "width": "5%" },
+                                { "data": "CategoryName", "width": "13%" },
+                                { "data": "UnitsInStock", "width": "7%" },
+                                { "data": "UnitsOnOrder", "width": "7%" },
+                                {
+                                    mRender: function (data, type, row) {
+                                        var linkEdit = '@Html.ActionLink("Edit", "Edit", new { ProductID = 1, DepartemenID = 11 })';
+                                        linkEdit = linkEdit.replace("1", row.ProductID);
+                                        linkEdit = linkEdit.replace("11", row.DepartemenID);
+
+                                        var linkDetails = '@Html.ActionLink("Details", "Details", new { ProductID = 2, DepartemenID = 22 })';
+                                        linkDetails = linkDetails.replace("2", row.ProductID);
+                                        linkDetails = linkDetails.replace("22", row.DepartemenID);
+
+                                        var linkDelete = '@Html.ActionLink("Delete", "Delete", new { ProductID = 3, DepartemenID = 33 })';
+                                        linkDelete = linkDelete.replace("3", row.ProductID);
+                                        linkDelete = linkDelete.replace("33", row.DepartemenID);
+
+                                        return linkDetails +
+                                                   "<br/>" + linkEdit +
+                                                   "<br/>" + linkDelete;
+
+                                        //'<a class="btn btn-info" href="/ProductsInventory/Edit/' + linkEdit + '"><i class="halflings-icon white edit"></i></a>' +
+                                        //'<a class="btn btn-danger" href="/ProductsInventory/Delete/' + linkDelete + '"><i class="halflings-icon white trash"></i></a>' +
+                                        //'<a class="btn btn-success" href="/ProductsInventory/Details/' + linkDetails + '"><i class="halflings-icon white zoom-in"></i></a>';
+                                    }
+                                },
+                                //{
+                                //    //"data": null,
+                                //    //"className": "center",
+                                //    //"data": "ProductID",
+                                //    "data": "('ProductID', 'DepartemenID')",
+                                //    "width": "13%",
+                                //    "render": function (data) {
+                                //                return '<a class="btn btn-info" href="/ProductsInventory/Edit/' + data + '"><i class="halflings-icon white edit"></i></a>' +
+                                //                        '<a class="btn btn-danger" href="/ProductsInventory/Delete/' + data + '"><i class="halflings-icon white trash"></i></a>' +
+                                //                        '<a class="btn btn-success" href="/ProductsInventory/Details/' + data + '"><i class="halflings-icon white zoom-in"></i></a>'
+                                //    }
+                                //}
+                            ],
+                            "pagingType": "full_numbers",
+                            "info": true,
+                            "scrollCollapse": true,
+                            "sScrollX": true,
+                            "sScrollY": "55vh",
+                            "sScrollCollapse": true,
+                            "width": "100%",
+                            "postion": "absolute"
+                        });
+                        dataTable.table.on('draw', function () {
+                            $('button[data-type="delete"]').click(function () {
+                                var $button = $(this);
+                            });
+                            $('button[data-type="edit"]').click(function () {
+                            });
+                        });
+                    })
+                </script>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+    td {
+        border: dotted 1px;
+    }
+</style>
+
+@Styles.Render("~/Content/dataTables")
+<link href="~/Content/dataTables/jquery.dataTables.min.css" rel="stylesheet" />

@@ -1,0 +1,79 @@
+﻿@model Gapura.Models.Departement
+
+@{
+    ViewBag.Title = "Edit Departement";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-edit"></i><span
+                class="break"></span>Edit Departement</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Edit", "Departement", FormMethod.Post, new
+        {
+            @class = "form-horizontal"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend></legend>
+
+            @Html.HiddenFor(model => model.DepartemenID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DepartemenName)
+
+            @Html.EditorFor(model => model.DepartemenName)
+            @Html.ValidationMessageFor(model => model.DepartemenName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DivisionID, "Division")
+
+            @Html.DropDownList("DivisionID", String.Empty)
+            @Html.ValidationMessageFor(model => model.DivisionID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Note)
+
+            @Html.EditorFor(model => model.Note)
+            @Html.ValidationMessageFor(model => model.Note)
+        </div>
+
+        <div class="form-actions">
+                        <a class="btn btn-success" href="#" onclick="$('form').submit();">Save</a>
+                        <input type="reset" value="Reset" class="btn" />
+                        <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                        <a href="@Url.Action("Delete", new { id = @Html.DisplayFor(model => model.DepartemenID) })" class="btn btn-danger">Delete</a>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<style>
+    div.editor-label {
+        margin-bottom: 14px !important;
+        /*padding-left: 6px;*/
+    }
+</style>

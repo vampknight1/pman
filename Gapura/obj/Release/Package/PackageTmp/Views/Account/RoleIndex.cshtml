@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Role Listing";
+}
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Role Index</a></li>
+        <li><a href="#tabs-2">Role Create</a></li>
+        <li><a href="#tabs-3">Add Role to User</a></li>
+        <li><a href="#tabs-4">Delete Role from User</a></li>
+    </ul>
+    <div id="tabs-1">
+        <legend>
+            <h2>Index of Role</h2>
+        </legend>
+        <div class="box-content">
+            <table class="table table-hover">
+                @{int rowNo = 0;}
+                @foreach (string str in Model)
+                {
+                    <tr>
+                        <td>
+                            @(rowNo += 1)
+                        </td>
+                        <td>@str</td>
+                        <td>
+                            @Html.AntiForgeryToken()
+                            <span onclick="return confirm('Are you sure to delete?')">
+                                @using (Html.BeginForm("RoleDelete", "Account", FormMethod.Post, new { id = @str }))
+                                {
+                                    <a href="@Url.Action("RoleDelete", "Account", new { id = @str })" class="deLink">
+                                        <i class="halflings-icon trash"></i>
+                                        Delete
+                                    </a>
+                                }
+                            </span>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div id="tabs-2">
+        @using (Html.BeginForm("RoleCreate", "Account"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>
+                    <h2>Create New Role</h2>
+                </legend>
+
+                <div class="control-group">
+                    @Html.Label("RoleName", "Role Name", new { @class = "control-label" })
+
+                    @Html.TextBox("RoleName")
+                    @Html.ValidationMessage("RoleName")
+                </div>
+
+                <div class="form-actions">
+                    <input type="submit" class="btn btn-success" value="Save" />
+                    <input type="reset" value="Reset" class="btn" />
+                </div>
+            </fieldset>
+        }
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+    </div>
+    <div id="tabs-3">@(Html.Partial("RoleAddToUser"))</div>
+    <div id="tabs-4">@{ Html.RenderPartial("RoleDeleteForUser"); }</div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tabs').tabs();
+    });
+</script>

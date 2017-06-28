@@ -1,0 +1,189 @@
+﻿<div id="sidebar-left" class="span2">
+    <div class="nav-collapse sidebar-nav">
+        <ul class="nav nav-tabs nav-stacked main-menu">
+            <li><a href="~/home/Index"><i class="icon-bar-chart"></i><span class="hidden-tablet">Dashboard </span></a></li>
+            <li>
+                <a class="dropmenu" href="#"><i class="icon-lock"></i><span class="hidden-tablet">RBAC Auth. </span>
+                    <span class="icon-sort"></span>
+                </a>
+                <ul>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Register", "Account")">
+                            <span class="icon-user"></span><span class="hidden-tablet">User Register </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Manage", "Account")">
+                            <span class="icon-unlock"></span><span class="hidden-tablet">Manage User </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="dropmenu" href="#"><i class="icon-legal"></i><span class="hidden-tablet">HR Area. </span>
+                    <span class="icon-sort"></span>
+                </a>
+                <ul>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "Division")">
+                            <span class="icon-home"></span><span class="hidden-tablet">Master Division </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "Departement")">
+                            <span class="icon-sitemap"></span><span class="hidden-tablet">Master Departemen </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "MasterTitle")">
+                            <span class="icon-user-md"></span><span class="hidden-tablet">Master Title </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "Employee")">
+                            <span class="icon-group"></span><span class="hidden-tablet">Employee </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="dropmenu" href="#"><i class="icon-wrench"></i><span class="hidden-tablet">Setup Apps. </span>
+                    <span class="icon-sort"></span>
+                </a>
+                <ul>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "TransTypes")">
+                            <span class="icon-retweet"></span><span class="hidden-tablet">Transaction Types </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "AssetsTypes")">
+                            <span class="icon-qrcode"></span><span class="hidden-tablet">Assets Types </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "TermOfPays")">
+                            <span class="icon-list-alt"></span><span class="hidden-tablet">Term Pays </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "RequestTypes")">
+                            <span class="icon-bullhorn"></span><span class="hidden-tablet">Type of Request </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "Currencies")">
+                            <span class="icon-money"></span><span class="hidden-tablet">Currency </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "Units")">
+                            <span class="icon-text-height"></span><span class="hidden-tablet">Units </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "Periods")">
+                            <span class="icon-calendar"></span><span class="hidden-tablet">Periods </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="dropmenu" href="#"><i class="icon-table"></i><span class="hidden-tablet">Master Data </span>
+                    <span class="icon-sort"></span>
+                </a>
+                <ul>
+                    @* ------------------------------------------------------------------- Test -------------------------------------------------------------------------------------- *@
+                    @*<li>
+                        <a class="dropmenu" href="#"><i class="icon-lock"></i><span class="hidden-tablet">HR </span>
+                            <span class="icon-sort"></span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="submenu" href="@Url.Action("Index", "Customers")">
+                                    <span class="icon-user"></span><span class="hidden-tablet">Dept. </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="submenu" href="@Url.Action("Index", "Employee")">
+                                    <span class="icon-user-md"></span><span class="hidden-tablet">Employees </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>*@
+                    @* ---------------------------------------------------------------- End Test ------------------------------------------------------------------------------------ *@
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "Categories")">
+                            <span class="icon-briefcase"></span><span class="hidden-tablet">Category Items </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "Products")">
+                            <span class="icon-tags"></span><span class="hidden-tablet">Items </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "Suppliers")">
+                            <span class="icon-truck"></span><span class="hidden-tablet">Supplier </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "MasterOffice")">
+                            <span class="icon-globe"></span><span class="hidden-tablet">Office Location</span>
+                        </a>
+                    </li>
+                    @*<li>
+                        <a class="submenu" href="@Url.Action("Index", "Customers")">
+                            <span class="icon-group"></span><span class="hidden-tablet">Customers </span>
+                        </a>
+                    </li>*@
+                </ul>
+            </li>
+            <li>
+                <a class="dropmenu" href="#"><i class="icon-credit-card"></i><span class="hidden-tablet">Transaction </span>
+                    <span class="icon-sort"></span>
+                </a>
+                <ul>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "Productsinventory")">
+                            <span class="icon-info-sign"></span><span class="hidden-tablet">Inventory Items </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "POHeader")">
+                            <span class="icon-book"></span><span class="hidden-tablet">PO </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "ReceiveHeader")">
+                            <span class="icon-download-alt"></span><span class="hidden-tablet">Receive Supp. </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "ReleaseHeader")">
+                            <span class="icon-share"></span><span class="hidden-tablet">Release Item </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="submenu" href="@Url.Action("Index", "RequestHeader")">
+                            <span class="icon-phone"></span><span class="hidden-tablet">Request Item </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            @*<li>
+                <a class="dropmenu" href="~/Metro/#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Extra Menu </span>
+                    <span class="label label-important">6 </span>
+                </a>
+                <ul>
+                    <li><a class="submenu" href="~/Metro/messages"><span class="icon-envelope"></span><span class="hidden-tablet">Messages</span></a></li>
+                    <li><a class="submenu" href="~/Metro/ui"><span class="icon-eye-open"></span><span class="hidden-tablet">UI Features</span></a></li>
+                    <li><a class="submenu" href="~/Metro/icon"><span class="icon-star"></span><span class="hidden-tablet">Icons</span></a></li>
+                    <li><a class="submenu" href="~/Metro/login"><span class="icon-lock"></span><span class="hidden-tablet">Login Page</span></a></li>
+                    <li><a class="submenu" href="~/Metro/table"><span class="icon-align-justify"></span><span class="hidden-tablet">Tables</span></a></li>
+                    <li><a class="submenu" href="~/Metro/typography"><span class="icon-font"></span><span class="hidden-tablet">Typography</span></a></li>
+                </ul>
+            </li>*@
+        </ul>
+    </div>
+</div>

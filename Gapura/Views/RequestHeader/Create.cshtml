@@ -1,0 +1,218 @@
+﻿@model Gapura.BLL.ViewModel.RequestHDVM
+
+@{
+    ViewBag.Title = "Create Request Item";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-pencil"></i><span class="break"></span>Create Request Item</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            <div class="master">
+                @using (Html.BeginForm("Create", "RequestHeader", FormMethod.Post, new
+        {
+            @class = "form-horizontal",
+            id = "myForm"
+        }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <table class="table table-condensed">
+                        <tr>
+                            <td>Request No</td>
+                            <td>
+                                @Html.TextBox("RequestNo", @ViewData["RequestNo"], String.Empty, new { @id = "RequestNo", @disabled = "", @class = "span8 typeahead" })
+                            </td>
+                            <td>Request Date</td>
+                            <td>
+                                @Html.TextBox("RequestDate", @ViewData["RequestDate"], new { @id = "RequestDate", @disabled = "", @class = "span8 typeahead" })
+                            </td>
+                            <td>Required Date</td>
+                            <td>
+                                @Html.TextBox("RequiredDate", @ViewData["RequiredDate"], new { @id = "RequiredDate", @class = "span6 typeahead" })
+                                @Html.ValidationMessage("RequiredDate", "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Reff. No</td>
+                            <td>
+                                @Html.TextBox("ReffNo", String.Empty, new { @id = "ReffNo", @class = "span8 typeahead" })
+                                @Html.ValidationMessage("ReffNo", "", new { style = "color:red;" })
+                            </td>
+                            <td>Request Type</td>
+                            <td>
+                                @Html.DropDownList("RequestTypeID", null, "- Select -", new { @class = "span5 typehead" })
+                                @Html.ValidationMessage("RequestTypeID", "", new { style = "color:red;" })
+                            </td>
+                            <td>Assets Type</td>
+                            <td>
+                                @Html.DropDownList("AssetsTypeID", null, "- Select -", new { @class = "span5 typehead" })
+                                @Html.ValidationMessage("AssetsTypeID", "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Requester</td>
+                            <td>
+                                @Html.Hidden("EmployeeID")
+                                @Html.TextBox("sEmployeeID", String.Empty, new { @id = "sEmployeeID", @class = "span8 typeahead" })
+                                @Html.ValidationMessage("EmployeeID", "", new { style = "color:red;" })
+                            </td>
+                            <td>Manager</td>
+                            <td>
+                                @Html.Hidden("MgrID")
+                                @Html.TextBox("sMgrID", String.Empty, new { @id = "sMgrID", @class = "span8 typeahead" })
+                                @Html.ValidationMessage("MgrID", "", new { style = "color:red;" })
+                            </td>
+                            <td>Departemen</td>
+                            <td>
+                                @Html.DropDownList("DepartemenID", null, "- Select -", new { @class = "span9 typehead" })
+                                @Html.ValidationMessage("DepartemenID", "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Currency</td>
+                            <td>
+                                @Html.DropDownList("CurrencyID", null, "- Select -", new { @class = "span6 typehead" })
+                                @Html.ValidationMessage("CurrencyID", "", new { style = "color:red;" })
+                            </td>
+                            <td>Remarks</td>
+                            <td colspan="7">
+                                @Html.TextArea("Remarks", String.Empty, new { @id = "Remarks", @rows = "2", @class = "span4 typeahead" })
+                                @Html.ValidationMessage("Remarks", "", new { style = "color:red;" })
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+            <div class="details">
+                <table class="table table-responsive">
+                    <tr>
+                        <td>
+                            <h3><u>List of Requested Items</u></h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Item Name</td>
+                        <td>Unit Price</td>
+                        <td>Unit Name</td>
+                        <td>Quantity</td>
+                        <td>Amount</td>
+                        <td>Remark</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr class="mycontainer" id="mainrow">
+                        <td>
+                            @*@Html.DropDownList("ProductID", String.Empty)*@
+                            @*@Html.TextBox("ProductID", String.Empty, new {style = "width: 90%;"})*@
+                            @*onchange="LoadProduct(this)"*@
+                            @*<select id="itemname" class="itemname form-control" 
+                                style="width: 150px;">
+                                <option>Select</option>
+                            </select>*@
+                            <input type="hidden" id="itemname" class="itemname form-control" />
+                            <input type="text" id="sitemname" class="sitemname form-control" style="width: 150px;" />
+                            <span class="error">Select Item Name !</span>
+                        </td>
+                        <td>
+                            @*@Html.TextBox("UnitPrice", String.Empty, new {style = "width: 50%;"})*@
+                            <input type="number" min="1" id="unitprice" class="unitprice form-control" onblur="totAmount()"
+                                style="width: 90px;" />
+                            <span class="error">Unit Price, required !</span>
+                        </td>
+                        <td>
+                            @*@Html.DropDownList("UnitID", String.Empty)*@
+                            @*@Html.TextBox("UnitID", String.Empty, new {style = "width: 30%;"})*@
+                            <select id="unitname" class="unitname form-control" 
+                                @*onchange="LoadUnit(this)" *@
+                                style="width: 90px;">
+                                <option>Select</option>
+                            </select>
+                            <span class="error">Select Unit Name !</span>
+                        </td>
+                        <td>
+                            @*@Html.TextBox("Quantity", String.Empty, new {style = "width: 30%;"})*@
+                            <input type="number" id="quantity" class="quantity form-control" onblur="totAmount()"
+                                style="width: 60px;" />
+                            <span class="error">Quantity, required !</span>
+                        </td>
+                        <td>
+                            @*@Html.TextBox("Amount", String.Empty, new {style = "width: 40%;"})*@
+                            @*<input type="hidden" class="amount" />*@
+                            <input type="number" id="amount" class="amount form-control" style="width: 120px;"
+                                readonly="true" />
+                            <span class="error">Amount, required !</span>
+                        </td>
+                        <td>
+                            @*@Html.TextBox("Remark", String.Empty, new {style = "size: 100%;"})*@
+                            @*<textarea id="remark"class="Remark form-control" style="width: 150px;"/>*@
+                            <input type="text" id="remark" class="remark form-control" style="width: 150px;" />
+                            <span class="error">Remark, required !</span>
+                        </td>
+                        <td>
+                            <input type="button" id="add" value="add" style="width: 50px" class="btn btn-info" />
+                        </td>
+                    </tr>
+                </table>
+                <div id="orderItems">
+                    <table class="table table-responsive"
+                        id="orderdetailsItems">
+                    </table>
+                    <span id="orderItemError" style="color: red"></span>
+                </div>
+                <div style="padding: 10px 0; text-align: right">
+                    <table class="table table-responsive">
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Total Request</td>
+                            <td>
+                                @Html.TextBox("TotalRequest", String.Empty, new { @id = "TotalRequest", @disabled = "" /*,@onblur = "totRequest();"*/ })
+                                @Html.ValidationMessage("TotalRequest", "", new { style = "color:red;" })
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>Total Price</td>
+                            <td>
+                                @Html.TextBox("TotalPrice", String.Empty, new { @id = "TotalPrice", @disabled = "" /*,@onblur = "totPrice();"*/ })
+                                @Html.ValidationMessage("TotalPrice", "", new { style = "color:red;" })
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input id="submit" type="button" value="Save Request" class="btn btn-success" style="width: 120px" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="~/Scripts/Request/CreateRequest.js"></script>
+
+<style>
+    span.error {
+        display: block;
+        visibility: hidden;
+        color: red;
+        font-size: 80%;
+    }
+
+    tr.error {
+        background-color: rgba(255,0,0,0.35);
+    }
+</style>

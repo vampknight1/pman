@@ -1,0 +1,172 @@
+﻿@model Gapura.Models.RequestHD
+
+@{
+    ViewBag.Title = "ListEdit";
+}
+
+<h2>ListEdit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>RequestHeader</legend>
+
+        <table class="table table-condensed">
+            <tr>
+                <td>Request No</td>
+                <td>
+                    @Html.TextBox("RequestNo", (string)ViewBag.RequestNo, String.Empty, new { @id = "RequestNo", @disabled = "", @class = "span8 typeahead" })
+                </td>
+                <td>Request Date</td>
+                <td>
+                    @*@Html.Hidden("RequestDate")*@
+                    @Html.HiddenFor(model => model.RequestHeader.RequestDate)
+                    @Html.TextBox("RequestDate", @ViewData["RequestDate"], new { @id = "RequestDate", @disabled = "", @class = "span8 typeahead" })
+                    @Html.ValidationMessageFor(model => model.RequestHeader.RequestDate)
+                </td>
+                <td>Required Date</td>
+                <td>
+                    @Html.TextBox("RequiredDate", @ViewData["RequiredDate"], new { @id = "RequiredDate", @class = "span6 typeahead" })
+                    @Html.ValidationMessageFor(model => model.RequestHeader.RequestDate)
+                </td>
+            </tr>
+            <tr>
+                <td>Reff. No</td>
+                <td>
+                    @Html.TextBox("ReffNo", @ViewData["ReffNo"], new { @id = "ReffNo", @class = "span8 typeahead" })
+                    @Html.ValidationMessage("ReffNo", "", new { style = "color:red;" })
+                </td>
+                <td>Request Type</td>
+                <td>
+                    @Html.DropDownList("RequestTypeID", "- Select -")
+                    @Html.ValidationMessage("RequestTypeID", "", new { style = "color:red;" })
+                </td>
+                <td>Assets Type</td>
+                <td>
+                    @Html.DropDownList("AssetsTypeID", "- Select -")
+                    @Html.ValidationMessage("AssetsTypeID", "", new { style = "color:red;" })
+                </td>
+            </tr>
+            <tr>
+                <td>Requester</td>
+                <td>
+                    @Html.DropDownList("EmployeeID", "- Select -")
+                    @*@Html.Hidden("EmployeeID")
+                            @Html.TextBox("sEmployeeID", (string)@ViewData["EmployeeID"], new { @id="sEmployeeID"  ,@class = "span8 typeahead" })*@
+                    @Html.ValidationMessage("EmployeeID", "", new { style = "color:red;" })
+                </td>
+                <td>Manager</td>
+                <td>
+                    @Html.DropDownList("MgrID", "- Select -")
+                    @*@Html.Hidden("MgrID")
+                            @Html.TextBox("sMgrID", (string)@ViewData["MgrID"], new { @id="sMgrID"  ,@class = "span8 typeahead" })*@
+                    @Html.ValidationMessage("MgrID", "", new { style = "color:red;" })
+                </td>
+                <td>Departemen</td>
+                <td>
+                    @Html.DropDownList("DepartemenID", "- Select -")
+                    @Html.ValidationMessage("DepartemenID", "", new { style = "color:red;" })
+                </td>
+            </tr>
+            <tr>
+                <td>Currency</td>
+                <td>
+                    @Html.DropDownList("CurrencyID", "- Select Currency -")
+                    @Html.ValidationMessage("CurrencyID", "", new { style = "color:red;" })
+                </td>
+                <td>Remarks</td>
+                <td colspan="7">
+                    @Html.TextArea("Remarks", (string)ViewBag.Remarks, new { @id = "Remarks", @rows = "2", @class = "span4 typeahead" })
+                    @Html.ValidationMessage("Remarks", "", new { style = "color:red;" })
+                </td>
+            </tr>
+        </table>
+
+        @Html.Partial("_ListRequestDetail", Model.RequestDetail)
+
+        <table class="table table-responsive">
+            <tr>
+                <td>Total Request</td>
+                <td>
+                    @Html.TextBox("TotalRequest", (int)ViewBag.TotalRequest, new { @id = "TotalRequest", @disabled = "" /*,@onblur = "totRequest();"*/ })
+                    @Html.ValidationMessage("TotalRequest", "", new { style = "color:red;" })
+                </td>
+                <td>Total Price</td>
+                <td>@Html.TextBox("TotalPrice", (int)ViewBag.TotalPrice, new { @id = "TotalPrice", @disabled = "" /*,@onblur = "totPrice();"*/ })
+                    @Html.ValidationMessage("TotalPrice", "", new { style = "color:red;" })
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+    $(function () {
+        $('#RequiredDate').focus();
+        $('#RequiredDate').datepicker({
+            appendText: ' YYYY-MM-DD',
+            dateFormat: 'yy-mm-dd',
+            minDate: 0,
+            changeMonth: true,
+            changeYear: true,
+            showOn: 'both'        //for button
+        });
+
+        $('#sitemname').autocomplete({
+            source: '@Url.Action("getProduct", "Products")',
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#sitemname").val(ui.item.label);
+                $("#itemname").val(ui.item.value);
+            },
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#sitemname").val(ui.item.label);
+            }
+        });
+    });
+
+    function totAmount() {
+        var varUnitPrice = document.getElementById('unitprice').value;
+        var varQuantity = document.getElementById('quantity').value;
+        document.getElementById('amount').value = parseFloat(varUnitPrice) * parseInt(varQuantity);
+    }
+
+    $('.quantity').keyup(function () {
+        var result = 0;
+        $('#TotalRequest').attr('value', function () {
+            $('.quantity').each(function () {
+                if ($(this).val() !== '') {
+                    result += parseInt($(this).val());
+                }
+            });
+            return result;
+        });
+    });
+    $('.amount').keyup(function () {
+        var result = 0;
+        $('#TotalPrice').attr('value', function () {
+            $('.amount').each(function () {
+                if ($(this).val() !== '') {
+                    result += parseFloat($(this).val());
+                }
+            });
+            return result;
+        });
+    });
+</script>

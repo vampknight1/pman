@@ -1,0 +1,64 @@
+﻿@*@model Gapura.BLL.Models.webpages_Roles*@
+
+@{
+    ViewBag.Title = "Create Role";
+    Layout = "";
+}
+
+@*<div class="box-header">
+    <h2><i class="halflings-icon th"></i><span class="break"></span></h2>
+</div>
+<div class="box-content">
+    <ul class="nav tab-menu nav-tabs" id="tabs">
+        <li>
+            <a href="@Url.Action("Index", "Home")" class="btn-close" title="Return to Homepage">
+                <i class="halflings-icon remove"></i>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("RoleIndex")" title="Return to Index List" >
+                <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("RoleDeleteForUser")">Delete Role for User</a>
+        </li>
+        <li>
+            <a href="@Url.Action("RoleAddToUser")">Add Role to User</a>
+        </li>
+        <li class="active">
+            <a href="#">Create New Role</a>
+        </li>
+        <li>
+            <a href="@Url.Action("RoleIndex")">Role Index</a>
+        </li>
+    </ul>
+</div>*@
+
+@using (Html.BeginForm("RoleCreate", "Account"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>
+            <h2>Create New Role</h2>
+        </legend>
+            
+            <div class="control-group">
+                    @Html.Label("RoleName", "Role Name", new { @class = "control-label" })
+
+                    @Html.TextBox("RoleName")
+                    @Html.ValidationMessage("RoleName")
+                </div>
+            
+            <div class="form-actions">
+                <a class="btn btn-success" href="#" onclick="$('form').submit();">Save</a>
+                <input type="reset" value="Reset" class="btn" />
+            </div>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

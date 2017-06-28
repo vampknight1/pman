@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Role Add To User";
+}
+
+@*<div class="box-header">
+    <h2><i class="halflings-icon th"></i><span class="break"></span></h2>
+</div>
+<div class="box-content">
+    <ul class="nav tab-menu nav-tabs" id="tabs">
+        <li>
+            <a href="@Url.Action("Index", "Home")" class="btn-close" title="Return to Homepage">
+                <i class="halflings-icon remove"></i>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("RoleIndex")" title="Return to Index List" >
+                <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("RoleDeleteForUser")">Delete Role for User</a>
+        </li>
+        <li class="active">
+            <a href="#">Add Role to User</a>
+        </li>
+        <li>
+            <a href="@Url.Action("RoleCreate")">Create New Role</a>
+        </li>
+        <li>
+            <a href="@Url.Action("RoleIndex")">Role Index</a>
+        </li>
+    </ul>
+</div>*@
+<table class="table table-responsive">
+    <tr>
+        <td>
+            @using (Html.BeginForm("RoleAddToUser", "Account"))
+            {@Html.AntiForgeryToken()
+                <legend>
+                    <h2>Role Add to User</h2>
+                </legend>
+                <div class="message-success">@ViewBag.ResultMessage</div>
+                <div class="control-group">
+                    @Html.Label("UserName", "UserName", new { @class = "control-label" })
+
+                    @Html.TextBox("UserName")
+                    @Html.ValidationMessage("UserName")
+                </div>
+    
+                <div class="control-group">
+                    @Html.Label("RoleName", "Role Name", new { @class = "control-label" })
+
+                    @Html.DropDownList("RoleName", ViewData["Roles"] as SelectList, "-- Select Role --")
+                    @Html.ValidationMessage("RoleName")
+                </div>
+    
+                <div class="form-actions">
+                    <input type="submit" class="btn btn-success" value="Save" />
+                    <input type="reset" value="Reset" class="btn" />
+                </div>
+            }
+        </td>
+        <td>
+            @using (Html.BeginForm("GetRoles", "Account"))
+            {
+                <legend>
+                    <h2>Role Add to User</h2>
+                </legend>
+                <div class="hr"></div>
+                @Html.AntiForgeryToken()
+                <div class="control-group">
+                    @Html.TextBox("UserName", null, new { placeholder = "UserName" })
+                </div>
+    
+                <input type="submit" class="btn btn-info" value="Get Roles for this User" />
+            }
+
+            @if (ViewBag.RolesForThisUser != null)
+            {
+                <text>
+                <h3>Roles for this User </h3>
+                <ol>
+                    @foreach (string str in ViewBag.RolesForThisUser)
+                    {
+                        <li>@str</li>   
+                    }
+                </ol>
+                </text>
+            }
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,266 @@
+﻿@*@using Gapura.Models.GlobalVar;*@
+@model Gapura.Models.Employee
+
+@{
+    ViewBag.Title = "Input Employee Data";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-edit"></i><span
+                class="break"></span>Input Employee Data</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>@*Back to Dashboard*@
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Create", "Employee", FormMethod.Post, new
+        {
+            enctype = "multipart/form-data",
+            @class = "form-horizontal"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <div class="container">
+                    <div class="box span3" style="margin-left: 0px">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>
+                                    <img src="~/UploadFiles/Photo/" 
+                                            alt="Please select Photo to Attach" width="250" height="450" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="file" id="FileUpload" name="fileUpload" multiple />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" id="Upload" value="Upload Photo" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="box span4" style="margin-left: 10px">
+                        <div class="box-header">
+                            <h4><i class="halflings-icon briefcase"></i><span class="break"></span><b>Private Data</b></h4>
+                            <div class="box-icon">
+                            </div>
+                        </div>
+                        <fieldset>
+                            <legend></legend>
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>Salutation</td>
+                                    <td>
+                                        @*@Html.EditorFor(model => model.TitleOfCourtesy)*@
+                                                @Html.DropDownListFor(
+                                                        m => m.TitleOfCourtesy,
+                                                        new List<SelectListItem> {
+                                                            new SelectListItem { Value = "Mr.", Text = "Mr." },
+                                                            new SelectListItem { Value = "Ms.", Text = "Ms." },
+                                                            new SelectListItem { Value = "Mrs.", Text = "Mrs." },
+                                                            new SelectListItem { Value = "Dr.", Text = "Dr." }
+                                                        },
+                                                        new { @class = "span4 typeahead" }
+                                                    )
+                                        @Html.ValidationMessageFor(model => model.TitleOfCourtesy)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>
+                                        @Html.EditorFor(model => model.LastName)
+                                        @Html.ValidationMessageFor(model => model.LastName)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Phone</td>
+                                    <td>
+                                        @Html.EditorFor(model => model.HomePhone)
+                                        @Html.ValidationMessageFor(model => model.HomePhone)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Birth Date</td>
+                                    <td>
+                                        @Html.EditorFor(model => model.BirthDate, new { @class = "span6 typeahead" })
+                                        @*@Html.TextBox("BirthDate", @ViewData["BirthDate"], new { @id = "BirthDate", @class = "span6 typeahead" })*@
+                                        @Html.ValidationMessageFor(model => model.BirthDate)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>
+                                        @Html.TextArea("Address", (string)ViewBag.Address, new { @id = "Address", @rows = "4", @class = "span10 typeahead" })
+                                        @Html.ValidationMessageFor(model => model.Address)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>City</td>
+                                    <td>
+                                        @Html.EditorFor(model => model.City)
+                                        @Html.ValidationMessageFor(model => model.City)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Region</td>
+                                    <td>
+                                        @Html.EditorFor(model => model.Region)
+                                        @Html.ValidationMessageFor(model => model.Region)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Postal Code</td>
+                                    <td>
+                                        @Html.EditorFor(model => model.PostalCode)
+                                        @Html.ValidationMessageFor(model => model.PostalCode)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Country</td>
+                                    <td>
+                                        @Html.EditorFor(model => model.Country)
+                                        @Html.ValidationMessageFor(model => model.Country)
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
+
+                    <div class="box span4" style="margin-left: 10px">
+                        <div class="box-header">
+                            <h4><i class="halflings-icon hand-right"></i><span class="break"></span><b>Designation</b></h4>
+                            <div class="box-icon">
+                            </div>
+                        </div>
+                        <legend></legend>
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Office</td>
+                                <td>
+                                    @Html.DropDownList("OfficeID", String.Empty)
+                                    @Html.ValidationMessageFor(model => model.OfficeID)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Departemen</td>
+                                <td>
+                                    @Html.DropDownList("DepartemenID", String.Empty)
+                                    @Html.ValidationMessageFor(model => model.DepartemenID)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Title</td>
+                                <td>
+                                    @Html.EditorFor(model => model.Title)
+                                    @Html.ValidationMessageFor(model => model.Title)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Hire Date</td>
+                                <td>
+                                    @Html.EditorFor(model => model.HireDate, new { @class = "span6 typeahead" })
+                                    @*@Html.TextBox("HireDate", @ViewData["HireDate"], new { @id = "HireDate", @class = "span6 typeahead" })*@
+                                    @Html.ValidationMessageFor(model => model.HireDate)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Reports To</td>
+                                <td>
+                                    @Html.DropDownList("ReportsTo", String.Empty)
+                                    @Html.ValidationMessageFor(model => model.ReportsTo)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Notes</td>
+                                <td>
+                                    @Html.TextArea("Notes", (string)ViewBag.Notes, new { @id = "Notes", @rows = "4", @class = "span10 typeahead" })
+                                    @Html.ValidationMessageFor(model => model.Notes)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <a class="btn btn-success" href="#" onclick="$('form').submit();">Save</a>
+                    <input type="reset" value="Reset" class="btn" />
+                    <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                </div>
+                
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript">
+    $(function () {
+        $('#TitleOfCourtesy').focus();
+        $('#BirthDate').datepicker({
+            //appendText: ' YYYY-MM-DD',
+            dateFormat: 'yy-mm-dd',
+            minYear: -16,
+            maxDate: 0,
+            changeMonth: true,
+            changeYear: true
+            //showOn: 'both'        //for button
+        });
+
+        $('#HireDate').datepicker({
+            //appendText: ' YYYY-MM-DD',
+            dateFormat: 'yy-mm-dd',
+            maxDate: 0,
+            changeMonth: true,
+            changeYear: true
+            //showOn: 'both'        //for button
+        });
+    });
+
+    $(document).ready(function () {
+        $("#Upload").click(function () {
+            var formData = new FormData();
+            var totalFiles = document.getElementById("FileUpload").files.length;
+            for (var i = 0; i < totalFiles; i++) {
+                var file = document.getElementById("FileUpload").files[i];
+
+                formData.append("FileUpload", file);
+            }
+            $.ajax({
+                type: "POST",
+                url: '/Employee/Upload',
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    alert('Upload Photo Succes!!');
+                },
+                error: function (error) {
+                    alert("Upload Process Errror !");
+                }
+            });
+        });
+    });
+</script>
+<style>
+    div.editor-label {
+        margin-bottom: 14px !important;
+        /*padding-left: 6px;*/
+    }
+</style>

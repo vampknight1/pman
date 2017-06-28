@@ -1,0 +1,159 @@
+﻿@model IEnumerable<Gapura.Models.Customer>
+
+@{
+    ViewBag.Title = "Customer List";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-table"></i><span
+                class="break"></span>Master Data Customer</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Create", "Customers")">
+                    <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                    Add New Customer
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            <div style="width: inherit; margin-left: 30px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CompanyName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ContactName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ContactTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.City)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Region)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PostalCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Country)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fax)
+                            </th>
+                            <th>Action
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            @* Load datatable css *@
+            @Styles.Render("~/Content/dataTables")
+            <link href="~/Content/dataTables/jquery.dataTables.min.css" rel="stylesheet" />
+
+            @* Load datatable js *@
+            @section Scripts{
+                <script src="~/Scripts/dataTables/dataTables.fixedHeader.min.js"></script>
+
+                @Scripts.Render("~/bundles/dataTables")
+
+                <script>
+                    $(document).ready(function () {
+                        //var item;
+                        $('a.editor_create').on('click', function (e) {
+                            e.preventDefault();
+
+                            editor.create({
+                                title: 'Create new record',
+                                buttons: 'Add'
+                            });
+                        });
+                        // Edit record
+                        $('#myTable').on('click', 'a.editor_edit', function (e) {
+                            e.preventDefault();
+
+                            editor.edit($(this).closest('tr'), {
+                                title: 'Edit record',
+                                buttons: 'Update'
+                            });
+                        });
+                        // Delete a record
+                        $('#myTable').on('click', 'a.editor_remove', function (e) {
+                            e.preventDefault();
+
+                            editor.remove($(this).closest('tr'), {
+                                title: 'Delete record',
+                                message: 'Are you sure you wish to remove this record?',
+                                buttons: 'Delete'
+                            });
+                        });
+
+                        $('#myTable').DataTable({
+                            "ajax": {
+                                "url": "/Customers/LoadData",
+                                "type": "GET",
+                                "datatype": "json"
+                            },
+                            "columns": [
+                                { "data": "CompanyName", "width": "20%" },
+                                { "data": "ContactName", "width": "15%" },
+                                { "data": "ContactTitle", "width": "10%" },
+                                { "data": "Address", "width": "10%" },
+                                //{ "data": "City", "autoWidth": true },
+                                //{ "data": "Region", "autoWidth": true },
+                                //{ "data": "PostalCode", "autoWidth": true },
+                                //{ "data": "Country", "autoWidth": true },
+                                { "data": "Phone", "width": "10%" },
+                                { "data": "Fax", "width": "10%" },
+                                {
+                                    //"data": null,
+                                    //"className": "center",
+                                    "data": "CustomerID", "width": "12%", "render": function (data) {
+                                        return '<a class="btn btn-info" href="/Customers/Edit/' + data + '"><i class="halflings-icon white edit"></i></a>' +
+                                                '<a class="btn btn-danger" href="/Customers/Delete/' + data + '"><i class="halflings-icon white trash"></i></a>' +
+                                                '<a class="btn btn-success" href="/Customers/Details/' + data + '"><i class="halflings-icon white zoom-in"></i></a>'
+                                    }
+                                }
+                            ],
+                            "pagingType": "full_numbers",
+                            "info": true,
+                            "scrollCollapse": true,
+                            "sScrollX": true,
+                            "sScrollY": "55vh",
+                            "sScrollCollapse": true,
+                            "width": "100%"
+                        });
+                        dataTable.table.on('draw', function () {
+                            $('button[data-type="delete"]').click(function () {
+                                var $button = $(this);
+                            });
+
+                            $('button[data-type="edit"]').click(function () {
+                            });
+                        });
+                    })
+                </script>
+            }
+        </div>
+    </div>
+</div>
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+    td {
+        border: dotted 1px;
+    }
+</style>

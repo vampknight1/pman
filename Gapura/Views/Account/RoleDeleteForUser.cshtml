@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "RoleDeleteForUser";
+}
+
+@using (Html.BeginForm("RoleDeleteForUser", "Account"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <legend>
+        <h2>Role Delete From User</h2>
+    </legend>
+    <div class="message-success">@ViewBag.ResultMessage</div>
+    <div class="control-group">
+        @Html.Label("UserName", "User Name", new { @class = "control-label" })
+
+        @Html.TextBox("UserName", null, new { placeholder = "UserName" })
+        @Html.ValidationMessage("UserName")
+    </div>
+    
+    <div class="control-group">
+        @Html.Label("RoleName", "Role Name", new { @class = "control-label" })
+
+        @Html.DropDownList("RoleName", ViewData["Roles"] as SelectList, "-- Select Role --")
+        @Html.ValidationMessage("RoleName")
+    </div>
+    
+    <input type="submit" value="Delete this user from Role" />
+}

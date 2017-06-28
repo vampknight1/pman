@@ -1,0 +1,29 @@
+﻿@model Gapura.Models.MasterCurrency
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MasterCurrency</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CurrencyCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CurrencyCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CurrencyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CurrencyName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

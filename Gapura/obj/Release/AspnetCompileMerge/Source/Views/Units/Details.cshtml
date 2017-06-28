@@ -1,0 +1,29 @@
+﻿@model Gapura.Models.MasterUnit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MasterUnit</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UnitID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnitID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UnitName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnitName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

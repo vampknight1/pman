@@ -1,0 +1,54 @@
+﻿@model Gapura.Models.ReceiveDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ReceiveDetail</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReceiveID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReceiveID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StockBegin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StockBegin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QtyReceive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QtyReceive)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StockFinal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StockFinal)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

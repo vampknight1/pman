@@ -1,0 +1,196 @@
+﻿@model Gapura.Models.Product
+
+@{
+    ViewBag.Title = "Create Item Product";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-pencil"></i><span
+                class="break"></span>Create Items Product</h2>
+            <div class="box-icon">
+                @*<a href="~/Products/Index" class="btn-setting"><i class="halflings-icon wrench"></i></a>*@
+                <a href="@Url.Action("Index")"
+                    title="Return to Index List" >
+                    <i class="halflings-icon chevron-up"></i><span class="hidden-tablet"></span>
+                </a>
+                <a href="~/Home/Index" class="btn-close"
+                    title="Return to Homepage">
+                    <i class="halflings-icon remove"></i>@*Back to Dashboard*@
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+
+            @using (Html.BeginForm("Create", "Products", FormMethod.Post, new
+        {
+            enctype = "multipart/form-data",
+            @class = "form-horizontal"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <div class="container">
+                    <div class="box span3">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>
+                                    <img src="~/UploadFiles/Item/yusenitem.jpg" 
+                                        alt="Please select Photo to Attach" width="250" height="450" />
+                                    @*@Html.HiddenFor(model => model.PhotoPath)*@
+                                    @Html.ValidationMessageFor(model => model.PhotoPath)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="file" id="FileUpload" name="fileUpload" multiple />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" id="Upload" value="Upload Photo" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="box span8" style="margin-left: 10px">
+                        <div class="box-header">
+                            <h4><i class="halflings-icon briefcase"></i><span class="break"></span><b>Item Detail</b></h4>
+                            <div class="box-icon">
+                            </div>
+                        </div>
+                        <fieldset>
+                            <legend></legend>
+
+                            <div class="editor-label">
+                                @Html.Label("ProductCode", "Item Code", new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.ProductCode)
+                                @Html.ValidationMessageFor(model => model.ProductCode)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("CategoryID", "Category", new { @class = "control-label" })
+
+                                @Html.DropDownList("CategoryID", String.Empty)
+                                @Html.ValidationMessageFor(model => model.CategoryID)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("ProductName", "Item Name", new { @class = "control-label" })
+
+                                @*@Html.EditorFor(model => model.ProductName)*@
+                                @Html.TextBox("ProductName", "", new { @class = "span7 typeahead" })
+                                @Html.ValidationMessageFor(model => model.ProductName)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("SupplierID", "Supplier", new { @class = "control-label" })
+
+                                @Html.DropDownList("SupplierID", String.Empty)
+                                @Html.ValidationMessageFor(model => model.SupplierID)
+                            </div>
+
+                            @*<div class="input-prepend input-append">
+                                <span class="add-on">$</span><input id="appendedPrependedInput" size="16" type="text"><span class="add-on">.00</span>
+                            </div>*@
+                            <div class="editor-label">
+                                @Html.Label("QuantityPerUnit", "Quantity Per Unit", new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.QuantityPerUnit)
+                                @Html.ValidationMessageFor(model => model.QuantityPerUnit)
+                            </div>
+                            <div class="control-group">
+                                @Html.Label("UnitPrice", "Unit Price", new { @class = "control-label" })
+
+                                <div class="input-prepend input-append">
+                                    @*<span class="add-on">Rp</span>*@              @* On RnD  fir 30112016 *@
+                                    @Html.EditorFor(model => model.UnitPrice)
+                                    <span class="add-on">,00</span><span class="add-on"> Rp</span>
+                                    @Html.ValidationMessageFor(model => model.UnitPrice)
+                                </div>
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("UnitID", "Unit Name", new { @class = "control-label" })
+
+                                @Html.DropDownList("UnitID", String.Empty)
+                                @Html.ValidationMessageFor(model => model.UnitID)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("Specs", "Specification", new { @class = "control-label" })
+
+                                @*@Html.TextArea("Specs", Model.Specs, new { @rows = "5", @class = "span6 typeahead" })*@
+                                @Html.TextAreaFor(model => model.Specs)
+                                @Html.ValidationMessageFor(model => model.Specs)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("ReorderLevel", "ReorderLevel", new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.ReorderLevel)
+                                @Html.ValidationMessageFor(model => model.ReorderLevel)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("Discontinued", "Discontinued", new { @class = "control-label" })
+
+                                @Html.EditorFor(model => model.Discontinued)
+                                @Html.ValidationMessageFor(model => model.Discontinued)
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("FirstInputDate", "Input Date", new { @class = "control-label" })
+
+                                @Html.TextBox("FirstInputDate", @ViewData["FirstInputDate"], new { @readonly = "readonly" })
+                                @*@Html.EditorFor(model => model.FirstInputDate, new { htmlAttributes = new { @class = "input-xlarge disabled", disabled = "disabled", @readonly = "readonly" } })*@
+                                @Html.ValidationMessageFor(model => model.FirstInputDate)
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                    @*<input type="submit" value="Save" />
+                        <input type="reset" value="Cancel" />*@
+                <div class="form-actions">
+                    <a class="btn btn-success" href="#" onclick="$('form').submit();">Save</a>
+                    <input type="reset" value="Reset" class="btn" />
+                    <a href="@Url.Action("Index")" class="btn btn-info">Cancel</a>
+                    <a href="@Url.Action("Delete", new { id = @Html.DisplayFor(model => model.ProductID) })" class="btn btn-danger">Delete</a>
+                </div>
+                        
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Upload").click(function () {
+            var formData = new FormData();
+            var totalFiles = document.getElementById("FileUpload").files.length;
+            for (var i = 0; i < totalFiles; i++) {
+                var file = document.getElementById("FileUpload").files[i];
+
+                formData.append("FileUpload", file);
+            }
+            $.ajax({
+                type: "POST",
+                url: '/Products/Upload',
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    alert('Upload Image Succes!!');
+                },
+                error: function (error) {
+                    alert("Upload Process Errror !");
+                }
+            });
+        });
+    });
+</script>
+<style>
+    div.editor-label {
+        margin-bottom: 14px !important;
+    }
+</style>

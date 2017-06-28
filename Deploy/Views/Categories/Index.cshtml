@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Gapura.BLL.Models.Category>
+
+@{
+    ViewBag.Title = "Category Index ";
+}
+<script src="~/Scripts/Rpt/Print.js"></script>
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-table"></i>
+                <span class="break"></span>Master Data Category</h2>
+            <div class="box-icon">
+                @using (Html.BeginForm("PrintListOfCategories", "Categories"))
+                { 
+                    <a href="@Url.Action("Create", "Categories")">
+                        <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                        Add New Category
+                    </a>
+                    <a href="#">
+                        <input id="btnPrintListOfItems" onclick="CategoryListPrint()"
+                            type="image" src="/Content/img/pdf_button.png" height="30" width="35" />
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="box-content">
+            <div style="width: inherit; margin-left: 30px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Category Name
+                            </th>
+                            <th>Description
+                            </th>
+                            <th>Action
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/Categories/IndexCategories.js"></script>
+    @*<script src="~/Scripts/dataTables/dataTables.fixedHeader.min.js"></script>*@
+    @*<script src="~/Scripts/dataTables/dataTables.responsive.min.js"></script>
+                <script src="~/Scripts/dataTables/jquery.jeditable.js"></script>
+                <script src="~/Scripts/dataTables/jquery.dataTables.editable.js"></script>*@
+}
+
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+
+    td {
+        border: dotted 1px;
+    }
+</style>
+@Styles.Render("~/Content/dataTables")

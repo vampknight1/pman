@@ -1,0 +1,84 @@
+﻿@model Gapura.Models.ReceiveHeader
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ReceiveHeader</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReceiveID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReceiveID)
+            @Html.ValidationMessageFor(model => model.ReceiveID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReceiveNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReceiveNo)
+            @Html.ValidationMessageFor(model => model.ReceiveNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReceiveDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReceiveDate)
+            @Html.ValidationMessageFor(model => model.ReceiveDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReceiptReff)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReceiptReff)
+            @Html.ValidationMessageFor(model => model.ReceiptReff)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SupplierCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SupplierCode)
+            @Html.ValidationMessageFor(model => model.SupplierCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TotalReceive)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TotalReceive)
+            @Html.ValidationMessageFor(model => model.TotalReceive)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserID)
+            @Html.ValidationMessageFor(model => model.UserID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

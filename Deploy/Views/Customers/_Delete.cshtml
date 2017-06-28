@@ -1,0 +1,20 @@
+﻿@model Gapura.ViewModel.CustomerVM
+ 
+<h2>Delete Employee</h2>
+@using (Html.BeginForm("Delete","Customers", FormMethod.Post, new { id= "popupForm" }))
+{
+    @Html.HiddenFor(m => m.CustomerID)
+    <div class="form-group">
+        <label>Customer Name</label>
+        <p>@Model.CompanyName</p>
+    </div>
+ 
+    <div class="form-group">
+        <label>Contact Name</label>
+        <p>@Model.ContactName</p>
+    </div>
+ 
+    <div>
+        <input type="submit" value="Delete" />
+    </div>
+}

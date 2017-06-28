@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Gapura.BLL.Models.Employee>
+
+@{
+    ViewBag.Title = "Employee List ";
+}
+<script src="~/Scripts/Rpt/Print.js"></script>
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title="">
+            <h2><i class="icon-table"></i><span class="break"></span>Master Data Employee</h2>
+            <div class="box-icon">
+                @using (Html.BeginForm("PrintListOfSuppliers", "Employee"))
+                { 
+                    <a href="@Url.Action("Create", "Employee")">
+                        <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                        Add New Employee
+                    </a>
+                    <a href="#">
+                        <input id="btnPrintListOfEmployee" onclick="EmployeeListPrint()"
+                            type="image" src="/Content/img/pdf_button.png" height="30" width="35" />
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="box-content">
+            <div style="width: inherit; margin-left: 30px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.OfficeID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DepartemenID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TitleID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.BirthDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HireDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ReportsTo)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.FirstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TitleOfCourtesy)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.City)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Region)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PostalCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Country)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HomePhone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Extension)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Photo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Notes)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PhotoPath)
+                            </th>*@
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            @section Scripts{
+                <script src="~/Scripts/Employee/IndexEmployee.js"></script>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+
+    td {
+        border: dotted 1px;
+    }
+</style>
+@Styles.Render("~/Content/dataTables")

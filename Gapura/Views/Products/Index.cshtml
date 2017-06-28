@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Gapura.BLL.Models.Product>
+
+@{
+    ViewBag.Title = "Index Item Products";
+}
+<script src="~/Scripts/Rpt/Print.js"></script>
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header">
+            <h2><i class="icon-table"></i>
+                <span class="break"></span>Master Data Items</h2>
+            <div class="box-icon">
+                @using (Html.BeginForm("PrintListOfItems", "Products"))
+                { 
+                    <a href="@Url.Action("Create", "Products")">
+                        <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                        Add New Item
+                    </a>
+                    <a href="#">
+                        <input id="btnPrintListOfItems" onclick="ItemsListPrint()"
+                            type="image" src="/Content/img/pdf_button.png" height="30" width="35" />
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="box-content">
+            <div style="width: inherit; margin-left: 0px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" @*cellspacing="0"*@ width="100%">
+                    <thead>
+                        <tr>
+                            <th>-</th>
+                            <th>Item Code
+                            </th>
+                            <th>Category
+                            </th>
+                            <th>Item Name
+                            </th>
+                            <th>Company
+                            </th>
+                            <th>Qty Per- Unit
+                            </th>
+                            <th>Unit Price
+                            </th>
+                            <th>Unit Name
+                            </th>
+                            <th>Specs.
+                            </th>
+                            <th>Re- Order Level
+                            </th>
+                            <th>End Prod.
+                            </th>
+                            <th>Input Date
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/Products/IndexProducts.js"></script>
+}
+
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+
+    td {
+        border: dotted 1px;
+    }
+</style>
+@Styles.Render("~/Content/dataTables")

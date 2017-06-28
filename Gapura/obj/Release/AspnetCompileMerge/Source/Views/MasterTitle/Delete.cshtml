@@ -1,0 +1,40 @@
+﻿@model Gapura.Models.MasterTitle
+
+@{
+    ViewBag.Title = "Delete Master Title";
+}
+
+<h2>Delete Master Title</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>MasterTitle</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TitleID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TitleID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TitleName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TitleName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Note)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Note)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
